@@ -1,0 +1,82 @@
+import useScrollReveal from '../hooks/useScrollReveal';
+
+interface RecordItem {
+  text: string;
+}
+
+interface RecordCategory {
+  label: string;
+  items: RecordItem[];
+}
+
+const categories: RecordCategory[] = [
+  {
+    label: 'Engineering Record',
+    items: [
+      { text: '10+ Years — Ultimate EOR Services' },
+      { text: '50+ Chemical EOR System Designs' },
+      { text: 'ASP / SP / Polymer Specialization' },
+      { text: '5 SPE Published Papers' },
+      { text: 'International Deployment — Kuwait Pilot QC' },
+    ],
+  },
+  {
+    label: 'Systems & Architecture',
+    items: [
+      { text: 'AI Workflow Engineering' },
+      { text: 'LLM Agent Systems' },
+      { text: 'Revenue Automation Infrastructure' },
+      { text: 'Blockchain Since 2018' },
+      { text: 'Full Self-Custody Since 2022' },
+    ],
+  },
+  {
+    label: 'Entrepreneurship',
+    items: [
+      { text: 'Founder Experience — Marketplace Ecommerce' },
+      { text: 'Brand Acquisition & Systems Rebuild — Okana' },
+      { text: 'Infrastructure Migration & Front-End Architecture' },
+      { text: 'Operational Automation Integration' },
+    ],
+  },
+];
+
+const TechnicalRecordSection = () => {
+  const ref = useScrollReveal();
+
+  return (
+    <section id="record" className="section-margin section-padding grain-overlay" ref={ref}>
+      <div className="max-w-5xl mx-auto">
+        <div className="reveal mb-16">
+          <span className="chapter-label">Technical Record</span>
+          <div className="divider-gold mt-4 mb-6" />
+          <h2 className="heading-serif text-4xl md:text-5xl lg:text-6xl text-cream">
+            Operating History
+          </h2>
+        </div>
+
+        <div className="reveal grid grid-cols-1 md:grid-cols-3 gap-px bg-border/20" style={{ transitionDelay: '0.15s' }}>
+          {categories.map((cat, ci) => (
+            <div key={ci} className="bg-background p-8 md:p-10">
+              <h3 className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold mb-8">
+                {cat.label}
+              </h3>
+              <ul className="space-y-4">
+                {cat.items.map((item, ii) => (
+                  <li key={ii} className="flex items-start gap-3">
+                    <span className="mt-2 w-1.5 h-1.5 rounded-full bg-gold/40 shrink-0" />
+                    <span className="font-sans text-sm text-muted-foreground leading-relaxed">
+                      {item.text}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default TechnicalRecordSection;
