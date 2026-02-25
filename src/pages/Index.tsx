@@ -2,10 +2,13 @@ import SiteNavigation from '../components/SiteNavigation';
 import HeroSection from '../components/HeroSection';
 import ChapterSection from '../components/ChapterSection';
 import CrimeaMapSVG from '../components/CrimeaMapSVG';
+import SevastopolDetailSVG from '../components/SevastopolDetailSVG';
 import JourneyMapSVG from '../components/JourneyMapSVG';
 import TransferModelSVG from '../components/TransferModelSVG';
 import FeedbackLoopSVG from '../components/FeedbackLoopSVG';
 import VentureCard from '../components/VentureCard';
+import TechnicalRecordSection from '../components/TechnicalRecordSection';
+import OkanaCaseStudy from '../components/OkanaCaseStudy';
 import IdeasSection from '../components/IdeasSection';
 import ContactSection from '../components/ContactSection';
 
@@ -21,27 +24,23 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="prose-editorial space-y-6">
             <p>
-              Some systems are born under compression. Sevastopol — a naval city engineered around containment 
-              and strategic positioning — was the first architecture Dan Glushko ever understood, 
-              though he wouldn't have called it that at the time.
+              Sevastopol is a naval city engineered around containment and strategic positioning. 
+              It was the first architecture Dan Glushko understood — though he wouldn't have called it that.
             </p>
             <p>
-              Immigration with his mother to Temple, Texas wasn't a story of escape. 
-              It was a <strong>forced recalibration</strong> — the kind that strips away every assumption 
-              about how things work and forces you to rebuild your operating model from first principles.
+              Immigration with his mother to Temple, Texas was a <strong>forced recalibration</strong>. 
+              Every assumption about how systems work gets stripped away. 
+              What remains is the operating model you rebuild from first principles.
             </p>
             <p>
-              Most people narrate this as hardship. The more accurate framing: 
-              <strong>pressure is information</strong>. It reveals which structures are load-bearing 
-              and which are decorative. The ones that survive aren't the strongest. 
-              They're the ones designed to distribute force.
+              Pressure is information. It reveals which structures are load-bearing 
+              and which are decorative. The systems that survive aren't the strongest — 
+              they're the ones <strong>designed to distribute force</strong>.
             </p>
           </div>
-          <div className="flex flex-col items-center gap-6">
+          <div className="flex flex-col items-center gap-8">
             <CrimeaMapSVG />
-            <span className="font-sans text-[9px] tracking-[0.15em] uppercase text-muted-nav">
-              Sevastopol · 44.6167°N, 33.5254°E
-            </span>
+            <SevastopolDetailSVG />
           </div>
         </div>
       </ChapterSection>
@@ -51,28 +50,30 @@ const Index = () => {
         <div className="space-y-12">
           <div className="prose-editorial space-y-6 max-w-3xl">
             <p>
-              At the University of Texas at Austin, the pattern became legible. 
-              Petroleum engineering isn't about extracting oil — it's about understanding 
-              <strong>invisible fluid dynamics under extreme constraint</strong>. 
-              Reservoir behavior is a masterclass in systems that can't be directly observed, 
-              only inferred through pressure responses and mathematical models.
+              Petroleum engineering at the University of Texas at Austin: understanding 
+              <strong> invisible fluid dynamics under extreme constraint</strong>. 
+              Every reservoir is a black box. The engineer's discipline is building 
+              models accurate enough to make decisions without opening it.
             </p>
             <p>
-              The UEORS research lab. SPE publications. These weren't academic exercises — 
-              they were training in <strong>reading systems that refuse to be seen</strong>. 
-              Every reservoir is a black box. The engineer's job isn't to open it. 
-              It's to build a model accurate enough to make decisions without opening it.
+              Designed and executed 50+ tertiary chemical EOR systems across 
+              laboratory validation and live pilot environments. Published five 
+              peer-reviewed technical papers through the Society of Petroleum Engineers 
+              on ASP and polymer design.
             </p>
             <p>
-              Kuwait extended the lesson from theory to field operations. 
-              Desert reservoirs operating under conditions that penalize guesswork. 
-              The margin for error in oilfield chemical systems isn't measured in percentage points — 
-              it's measured in <strong>millions of dollars and environmental consequence</strong>.
+              Deployed internationally to Kuwait to conduct quality control 
+              during live pilot-stage tertiary recovery implementation. 
+              The margin for error in oilfield chemical systems is measured 
+              in <strong>millions of dollars and environmental consequence</strong>.
             </p>
           </div>
 
           <div className="mt-16">
             <JourneyMapSVG />
+            <p className="text-center mt-6 font-sans text-[9px] tracking-[0.15em] uppercase text-muted-nav">
+              Sevastopol → Temple → Austin → Kuwait
+            </p>
           </div>
         </div>
       </ChapterSection>
@@ -81,24 +82,24 @@ const Index = () => {
       <ChapterSection id="failure" number="III" title="Failure as Calibration">
         <div className="prose-editorial space-y-6 max-w-3xl">
           <p>
-            The entrepreneurial path isn't a hero's journey — it's a <strong>calibration sequence</strong>. 
-            Every venture that doesn't scale teaches you something no successful venture ever could: 
-            where the model breaks.
+            The entrepreneurial path is a <strong>calibration sequence</strong>. 
+            Every venture that doesn't scale reveals where the model breaks — 
+            information no successful venture provides.
           </p>
           <p>
-            The rebuilding of Okana wasn't a pivot. It was a structural reassessment. 
-            The original architecture had a flaw not in execution, but in <strong>load distribution</strong>. 
-            The business was designed for conditions that didn't exist. 
-            The rebuild was designed for conditions that did.
+            The Okana rebuild was a structural reassessment. The original architecture 
+            had a flaw not in execution but in <strong>load distribution</strong> — 
+            designed for conditions that didn't exist. The rebuild was designed 
+            for conditions that did.
           </p>
           <p>
-            This is the distinction most founders miss: <strong>failure isn't the opposite of success — 
-            it's the sensor array that makes success navigable</strong>. Without failure data, 
-            you're optimizing against a model you've never validated.
+            Failure is the sensor array that makes success navigable. 
+            Without failure data, you're optimizing against 
+            a model you've never validated.
           </p>
           <p>
-            The shift wasn't from "failing" to "succeeding." It was from building systems 
-            that assumed stability to building systems that <strong>assumed variance</strong>.
+            The shift: from building systems that assumed stability 
+            to building systems that <strong>assumed variance</strong>.
           </p>
         </div>
 
@@ -115,25 +116,23 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="prose-editorial space-y-6">
             <p>
-              AI automation since its inflection point. Blockchain architecture since 2018. 
-              Self-custody protocols since 2022. These aren't separate interests — 
-              they're <strong>the same interest applied across different substrates</strong>.
+              AI automation. Blockchain architecture since 2018. 
+              Self-custody protocols since 2022. Not separate interests — 
+              <strong>the same interest applied across different substrates</strong>.
             </p>
             <p>
-              The common thread: <strong>systems that operate with minimal human intervention 
-              and maximum structural integrity</strong>. Whether it's a reservoir management system, 
-              an autonomous business process, or a self-custodied asset — the design philosophy 
-              is identical.
+              The common thread: systems that operate with minimal human intervention 
+              and maximum structural integrity. Whether it's reservoir management, 
+              an autonomous business process, or a self-custodied asset — 
+              the design philosophy is identical.
             </p>
             <p>
-              Architecture is the practice of making decisions now that constrain decisions later — 
-              in a way that <strong>the constraints become advantages</strong>. A well-architected system 
-              doesn't just survive its environment. It makes the environment more navigable for everything 
-              connected to it.
+              Architecture is making decisions now that constrain decisions later — 
+              so that <strong>the constraints become advantages</strong>.
             </p>
             <p>
-              The question isn't "how do we automate this?" It's 
-              <strong>"what structure makes automation inevitable?"</strong>
+              The question isn't "how do we automate this?" 
+              It's <strong>"what structure makes automation inevitable?"</strong>
             </p>
           </div>
           <div>
@@ -153,27 +152,44 @@ const Index = () => {
           </p>
           <p>
             His mother — the original architect of pressure navigation — 
-            remains the most important structural element in every system Dan has built. 
-            Not because of sentiment. Because <strong>the most durable systems 
-            are built on foundations that predate the architect</strong>.
+            is the most important structural element in every system built. 
+            The most durable systems are built on <strong>foundations 
+            that predate the architect</strong>.
           </p>
           <p>
-            Family isn't a chapter in a founder's story. It's the <strong>load-bearing wall</strong>. 
-            Remove it and the structure stands for a while. But it doesn't last.
-          </p>
-          <p>
-            Legacy isn't built by moving fast. It's built by <strong>designing systems 
-            that compound after you stop touching them</strong>. The best architecture 
-            is the kind you eventually forget is there — because it's become 
-            the environment itself.
+            Family is the load-bearing wall. Legacy isn't built by moving fast. 
+            It's built by <strong>designing systems that compound 
+            after you stop touching them</strong>.
           </p>
           <p>
             Restraint is the final optimization. Knowing what not to build. 
-            What not to say. What not to disrupt. 
-            <strong>The architect's last move is always stillness.</strong>
+            What not to disrupt. <strong>The architect's last move is stillness.</strong>
           </p>
         </div>
+
+        {/* Capital & stewardship signal */}
+        <div className="mt-16 border-t border-border/30 pt-12 max-w-3xl">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            {[
+              'Built for durability across cycles.',
+              'Engineered for margin resilience.',
+              'Structured for long-term compounding.',
+              'Stewardship, not extraction.',
+            ].map((signal, i) => (
+              <p key={i} className="font-sans text-xs text-muted-foreground tracking-wide leading-relaxed flex items-center gap-3">
+                <span className="w-1 h-1 rounded-full bg-gold/30 shrink-0" />
+                {signal}
+              </p>
+            ))}
+          </div>
+        </div>
       </ChapterSection>
+
+      {/* Technical Record */}
+      <TechnicalRecordSection />
+
+      {/* Okana Case Study */}
+      <OkanaCaseStudy />
 
       {/* Current Ventures */}
       <section id="ventures" className="section-margin section-padding">
@@ -188,16 +204,20 @@ const Index = () => {
             <VentureCard
               name="Livadea"
               role="Holding Company"
-              description="Durable business acquisition and capital allocation. Built to compound across cycles, not chase them."
+              description="Acquiring and operating durable small businesses with long-term stewardship. Built to compound across cycles, not chase them."
               url="https://livadea.com"
             />
             <VentureCard
               name="Livadea Systems"
               role="AI Systems Firm"
-              description="Autonomous systems architecture. Signal processing, optimization loops, and intelligent automation for businesses that need to scale without scaling headcount."
+              description="Autonomous systems architecture. Signal processing, optimization loops, and intelligent automation for enterprises scaling without scaling headcount."
               url="https://systems.livadea.com"
             />
           </div>
+
+          <p className="mt-10 font-sans text-xs text-muted-foreground tracking-wide text-center max-w-lg mx-auto">
+            Focused on acquiring and operating durable small businesses with long-term stewardship — not short-term extraction.
+          </p>
         </div>
       </section>
 

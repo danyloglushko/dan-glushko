@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 
 const sections = [
-  { id: 'hero', label: 'I' },
-  { id: 'pressure', label: 'II' },
-  { id: 'invisible-systems', label: 'III' },
-  { id: 'failure', label: 'IV' },
-  { id: 'architecture', label: 'V' },
-  { id: 'durability', label: 'VI' },
-  { id: 'ventures', label: 'VII' },
+  { id: 'hero', label: 'Top' },
+  { id: 'pressure', label: 'Pressure' },
+  { id: 'invisible-systems', label: 'Systems' },
+  { id: 'failure', label: 'Calibration' },
+  { id: 'architecture', label: 'Architecture' },
+  { id: 'durability', label: 'Durability' },
+  { id: 'record', label: 'Record' },
+  { id: 'ventures', label: 'Ventures' },
 ];
 
 const SiteNavigation = () => {
@@ -39,12 +40,12 @@ const SiteNavigation = () => {
       <div className="section-padding flex items-center justify-between h-16">
         <a href="#hero" className="text-gold font-serif text-lg tracking-wide">DG</a>
 
-        <div className="hidden md:flex items-center gap-8">
-          {sections.map(s => (
+        <div className="hidden md:flex items-center gap-6">
+          {sections.slice(1).map(s => (
             <a
               key={s.id}
               href={`#${s.id}`}
-              className={`font-sans text-[10px] tracking-[0.2em] uppercase transition-colors duration-300 ${
+              className={`font-sans text-[10px] tracking-[0.15em] uppercase transition-colors duration-300 ${
                 activeSection === s.id ? 'text-gold' : 'text-muted-nav hover:text-cream'
               }`}
             >

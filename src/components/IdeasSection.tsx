@@ -3,27 +3,27 @@ import useScrollReveal from '../hooks/useScrollReveal';
 const ideas = [
   {
     title: 'Entropy is the default',
-    body: 'Every system degrades without deliberate architecture. The question is never whether things will fall apart — it\'s whether the rate of decay exceeds the rate of repair.',
+    body: 'Every system degrades without deliberate architecture. The question is never whether things fall apart — it\'s whether decay outpaces repair.',
   },
   {
     title: 'Architecture beats effort',
-    body: 'A well-designed system outperforms a team of brilliant operators running a broken one. Structure multiplies; effort adds.',
+    body: 'A well-designed system outperforms brilliant operators running a broken one. Structure multiplies. Effort adds.',
   },
   {
-    title: 'Optimize at the margins',
-    body: 'The greatest returns hide in the overlooked details — the second-order effects, the friction nobody measured, the incentive nobody questioned.',
+    title: 'Optimization lives at the margins',
+    body: 'The greatest returns hide in the overlooked — the second-order effects, the friction nobody measured, the incentive nobody questioned.',
   },
   {
-    title: 'Pressure reveals structure',
-    body: 'You don\'t understand a system until it\'s under load. Resilience isn\'t built in calm waters. It\'s tested in storms and measured in aftermath.',
+    title: 'Incentives drive outcomes more reliably than intention',
+    body: 'Design the incentive structure correctly and the system self-corrects. Design it poorly and no amount of management compensates.',
   },
   {
     title: 'Durability is a strategy',
-    body: 'Speed is overrated. The companies, systems, and people that endure do so because they were designed to absorb variance, not outrun it.',
+    body: 'The companies, systems, and people that endure were designed to absorb variance, not outrun it.',
   },
   {
     title: 'Perception is architecture',
-    body: 'How a system is understood matters as much as how it functions. The invisible forces — incentives, framing, context — shape outcomes more than mechanics.',
+    body: 'How a system is understood shapes outcomes more than how it functions. The invisible forces — framing, context, incentives — are the real levers.',
   },
 ];
 
@@ -36,7 +36,7 @@ const IdeasSection = () => {
         <div className="reveal mb-16">
           <span className="chapter-label">Principles</span>
           <div className="divider-gold mt-4 mb-6" />
-          <h2 className="heading-serif text-4xl md:text-5xl">Ideas</h2>
+          <h2 className="heading-serif text-4xl md:text-5xl text-cream">How I Think</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px bg-border/30 reveal" style={{ transitionDelay: '0.1s' }}>
