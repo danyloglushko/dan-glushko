@@ -24,21 +24,37 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="prose-editorial space-y-6">
             <p>
-              Sevastopol is a naval city engineered around containment and strategic positioning. 
-              It was the first architecture Dan Glushko understood — though he wouldn't have called it that.
+              Sevastopol is a naval city. Harbors, steel, ships built to endure weather.
             </p>
             <p>
-              Immigration with his mother to Temple, Texas was a <strong>forced recalibration</strong>. 
-              Every assumption about how systems work gets stripped away. 
-              What remains is the operating model you rebuild from first principles.
+              It was the first environment I understood — even if I didn't have the language for it.
             </p>
             <p>
-              Pressure is information. It reveals which structures are load-bearing 
-              and which are decorative. The systems that survive aren't the strongest — 
-              they're the ones <strong>designed to distribute force</strong>.
+              At eight years old, I immigrated to the United States with my mother. We landed in Temple, Texas. Different language. Different rules. Different assumptions about how the world worked.
+            </p>
+            <p>
+              Nothing felt stable at first.
+            </p>
+            <p>
+              When you move that young, you don't think in terms of opportunity. You think in terms of <strong>orientation</strong>. You're trying to understand the new system — how people speak, how schools function, what earns respect, what doesn't.
+            </p>
+            <p>
+              My mother worked long hours. Stability wasn't assumed. It was built deliberately.
+            </p>
+            <p>
+              That was the first lesson.
+            </p>
+            <p>
+              Pressure isn't dramatic. It's clarifying. It shows you which structures hold and which ones were decorative all along.
+            </p>
+            <p>
+              Some people try to escape pressure.
+            </p>
+            <p>
+              <strong>I learned to observe it.</strong>
             </p>
           </div>
-          <div className="flex flex-col items-center gap-8">
+          <div className="flex flex-col items-center gap-8 lg:sticky lg:top-32">
             <CrimeaMapSVG />
             <SevastopolDetailSVG />
           </div>

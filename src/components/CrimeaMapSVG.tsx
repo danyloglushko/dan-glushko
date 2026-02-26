@@ -13,119 +13,174 @@ const CrimeaMapSVG = () => {
     return () => observer.disconnect();
   }, []);
 
-  // Mathematically accurate Crimean Peninsula outline
-  const crimeaPath = `M158 195 L170 178 L185 165 L198 158 L215 148 L232 138 L248 130 L268 122 L288 115 L310 110 L332 108 L352 108 L370 112 L388 118 L402 126 L415 136 L425 148 L432 162 L436 178 L438 192 L435 205 L428 218 L418 230 L408 238 L395 245 L382 252 L368 260 L355 265 L340 268 L325 270 L308 272 L290 273 L272 272 L255 268 L238 262 L222 254 L210 245 L200 235 L192 224 L185 212 L178 200 L168 195 Z`;
+  // Geographically accurate Crimean Peninsula outline traced from reference
+  // Clockwise from Perekop Isthmus (north), viewBox mapped to ~33°E-36.6°E, 44.3°N-46.2°N
+  const crimeaOutline = `
+    M 195 52
+    L 205 48 L 218 45 L 228 48 L 235 52
+    L 248 50 L 260 46 L 275 42 L 290 40 L 310 38
+    L 330 36 L 350 38 L 368 42 L 380 48
+    L 388 55 L 395 62 L 400 70 L 408 76
+    L 420 78 L 435 74 L 448 68 L 458 64
+    L 465 68 L 470 75 L 478 82
+    L 485 90 L 490 98 L 492 108
+    L 488 115 L 482 120 L 475 125
+    L 468 130 L 458 128 L 450 122
+    L 442 118 L 435 120 L 428 126
+    L 420 134 L 412 142
+    L 402 152 L 392 162 L 382 172
+    L 370 182 L 358 192 L 345 200
+    L 332 208 L 318 216 L 305 222
+    L 292 228 L 278 234 L 265 238
+    L 252 242 L 238 244 L 225 244
+    L 215 240 L 208 234 L 202 226
+    L 198 218 L 192 224 L 185 230
+    L 178 234 L 170 232 L 165 226
+    L 162 218 L 160 208 L 155 198
+    L 148 190 L 140 184 L 132 180
+    L 125 174 L 120 166 L 118 156
+    L 120 146 L 125 136 L 132 126
+    L 140 118 L 148 110 L 155 102
+    L 160 94 L 162 86 L 165 78
+    L 170 70 L 178 62 L 188 56
+    L 195 52
+  `;
 
-  // Kerch Peninsula extension
-  const kerchPath = `M432 162 L445 155 L458 150 L472 148 L485 150 L495 155 L502 162 L505 172 L502 182 L495 188 L485 192 L472 192 L458 188 L445 182 L438 175`;
+  // Sevastopol harbor inlet detail
+  const sevastopolInlet = `
+    M 198 218 L 192 224 L 185 230 L 178 234 L 170 232
+  `;
 
-  // Southern coast detail (Yalta region)
-  const southCoastPath = `M275 273 L268 280 L262 285 L258 282 L265 276`;
+  // Kerch Peninsula (the eastern extension)
+  const kerchHighlight = `
+    M 420 78 L 435 74 L 448 68 L 458 64
+    L 465 68 L 470 75 L 478 82
+    L 485 90 L 490 98 L 492 108
+    L 488 115 L 482 120 L 475 125
+    L 468 130 L 458 128 L 450 122
+    L 442 118 L 435 120
+  `;
 
   return (
     <svg
       ref={ref}
-      viewBox="0 0 600 400"
-      className="w-full max-w-2xl mx-auto"
+      viewBox="60 0 480 300"
+      className="w-full max-w-lg mx-auto"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
       {/* Coordinate grid */}
-      {Array.from({ length: 7 }).map((_, i) => (
-        <line key={`cg-v-${i}`} x1={i * 100} y1={0} x2={i * 100} y2={400}
+      {Array.from({ length: 8 }).map((_, i) => (
+        <line key={`v-${i}`} x1={80 + i * 60} y1={0} x2={80 + i * 60} y2={300}
           stroke="hsl(39 100% 94% / 0.04)" strokeWidth={0.5} />
       ))}
-      {Array.from({ length: 5 }).map((_, i) => (
-        <line key={`cg-h-${i}`} x1={0} y1={i * 100} x2={600} y2={i * 100}
+      {Array.from({ length: 6 }).map((_, i) => (
+        <line key={`h-${i}`} x1={60} y1={i * 60} x2={540} y2={i * 60}
           stroke="hsl(39 100% 94% / 0.04)" strokeWidth={0.5} />
       ))}
 
       {/* Topographic contours */}
-      <ellipse cx={320} cy={200} rx={160} ry={90} stroke="hsl(39 100% 94% / 0.035)" strokeWidth={0.5} />
-      <ellipse cx={320} cy={195} rx={120} ry={65} stroke="hsl(39 100% 94% / 0.03)" strokeWidth={0.5} />
-      <ellipse cx={325} cy={190} rx={80} ry={42} stroke="hsl(39 100% 94% / 0.025)" strokeWidth={0.5} />
-      <ellipse cx={330} cy={185} rx={45} ry={25} stroke="hsl(39 100% 94% / 0.02)" strokeWidth={0.5} />
+      <ellipse cx={300} cy={140} rx={140} ry={80}
+        stroke="hsl(39 100% 94% / 0.03)" strokeWidth={0.5} fill="none" />
+      <ellipse cx={300} cy={135} rx={100} ry={55}
+        stroke="hsl(39 100% 94% / 0.025)" strokeWidth={0.5} fill="none" />
+      <ellipse cx={305} cy={130} rx={60} ry={32}
+        stroke="hsl(39 100% 94% / 0.02)" strokeWidth={0.5} fill="none" />
 
-      {/* Peninsula outline */}
+      {/* Main peninsula outline */}
       <path
-        d={crimeaPath}
-        stroke="hsl(33 67% 67% / 0.4)"
+        d={crimeaOutline}
+        stroke="hsl(33 67% 67% / 0.45)"
         strokeWidth={1.4}
         fill="none"
         strokeLinejoin="round"
-        strokeDasharray={1400}
-        strokeDashoffset={isVisible ? 0 : 1400}
+        strokeLinecap="round"
+        strokeDasharray={2000}
+        strokeDashoffset={isVisible ? 0 : 2000}
         style={{ transition: 'stroke-dashoffset 2.5s cubic-bezier(.22,.61,.36,1)' }}
       />
 
-      {/* Kerch extension */}
+      {/* Kerch Peninsula highlight */}
       <path
-        d={kerchPath}
-        stroke="hsl(33 67% 67% / 0.3)"
-        strokeWidth={1.2}
+        d={kerchHighlight}
+        stroke="hsl(33 67% 67% / 0.2)"
+        strokeWidth={0.8}
         fill="none"
         strokeLinejoin="round"
-        strokeDasharray={300}
-        strokeDashoffset={isVisible ? 0 : 300}
+        strokeDasharray={400}
+        strokeDashoffset={isVisible ? 0 : 400}
         style={{ transition: 'stroke-dashoffset 2s cubic-bezier(.22,.61,.36,1) 0.5s' }}
-      />
-
-      {/* South coast detail */}
-      <path
-        d={southCoastPath}
-        stroke="hsl(33 67% 67% / 0.25)"
-        strokeWidth={1}
-        fill="none"
-        strokeDasharray={100}
-        strokeDashoffset={isVisible ? 0 : 100}
-        style={{ transition: 'stroke-dashoffset 1.5s cubic-bezier(.22,.61,.36,1) 0.8s' }}
       />
 
       {/* Sevastopol marker */}
       <g className={isVisible ? 'opacity-100' : 'opacity-0'}
         style={{ transition: 'opacity 0.8s ease 1.5s' }}>
         {/* Pulse rings */}
-        <circle cx={205} cy={252} r={12}
-          stroke="hsl(33 67% 67% / 0.25)" strokeWidth={0.8} fill="none"
+        <circle cx={185} cy={230} r={10}
+          stroke="hsl(33 67% 67% / 0.2)" strokeWidth={0.6} fill="none"
           className="animate-pulse-subtle" />
-        <circle cx={205} cy={252} r={20}
-          stroke="hsl(33 67% 67% / 0.1)" strokeWidth={0.5} fill="none"
+        <circle cx={185} cy={230} r={18}
+          stroke="hsl(33 67% 67% / 0.08)" strokeWidth={0.4} fill="none"
           className="animate-pulse-subtle"
           style={{ animationDelay: '0.5s' }} />
         {/* Core dot */}
-        <circle cx={205} cy={252} r={3.5}
+        <circle cx={185} cy={230} r={3}
           fill="hsl(33 67% 67% / 0.8)"
           className="svg-node-glow" />
 
         {/* Label */}
-        <text x={222} y={248} fill="hsl(33 67% 67% / 0.7)"
-          fontFamily="var(--font-serif)" fontSize={9} fontWeight={400}
+        <text x={135} y={260} fill="hsl(33 67% 67% / 0.7)"
+          fontFamily="var(--font-serif)" fontSize={8} fontWeight={400}
           letterSpacing="0.14em" fontStyle="italic">
           SEVASTOPOL
         </text>
-        <text x={222} y={262} fill="hsl(39 100% 94% / 0.25)"
-          fontFamily="var(--font-sans)" fontSize={6.5} letterSpacing="0.06em">
+        <text x={135} y={272} fill="hsl(39 100% 94% / 0.2)"
+          fontFamily="var(--font-sans)" fontSize={6} letterSpacing="0.06em">
           44.6167°N · 33.5254°E
         </text>
       </g>
 
+      {/* City labels */}
+      <g className={isVisible ? 'opacity-100' : 'opacity-0'}
+        style={{ transition: 'opacity 0.6s ease 2s' }}>
+        <text x={290} y={30} fill="hsl(39 100% 94% / 0.1)"
+          fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.08em">
+          PEREKOP
+        </text>
+        <text x={478} y={95} fill="hsl(39 100% 94% / 0.1)"
+          fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.08em">
+          KERCH
+        </text>
+        <text x={350} y={210} fill="hsl(39 100% 94% / 0.1)"
+          fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.08em">
+          YALTA
+        </text>
+        <text x={240} y={22} fill="hsl(39 100% 94% / 0.1)"
+          fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.08em">
+          KARKINIT BAY
+        </text>
+      </g>
+
       {/* Coordinate labels */}
-      <text x={10} y={395} fill="hsl(39 100% 94% / 0.12)"
-        fontFamily="var(--font-sans)" fontSize={6.5} letterSpacing="0.06em">
-        33°E
-      </text>
-      <text x={560} y={395} fill="hsl(39 100% 94% / 0.12)"
-        fontFamily="var(--font-sans)" fontSize={6.5} letterSpacing="0.06em">
-        36°E
-      </text>
-      <text x={10} y={15} fill="hsl(39 100% 94% / 0.12)"
-        fontFamily="var(--font-sans)" fontSize={6.5} letterSpacing="0.06em">
-        45.5°N
-      </text>
-      <text x={555} y={15} fill="hsl(39 100% 94% / 0.12)"
-        fontFamily="var(--font-sans)" fontSize={6.5} letterSpacing="0.06em">
-        44.3°N
-      </text>
+      <g className={isVisible ? 'opacity-100' : 'opacity-0'}
+        style={{ transition: 'opacity 0.6s ease 2.2s' }}>
+        <text x={65} y={295} fill="hsl(39 100% 94% / 0.1)"
+          fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.06em">
+          33°E
+        </text>
+        <text x={500} y={295} fill="hsl(39 100% 94% / 0.1)"
+          fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.06em">
+          36°E
+        </text>
+        <text x={65} y={12} fill="hsl(39 100% 94% / 0.1)"
+          fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.06em">
+          46°N
+        </text>
+        <text x={500} y={12} fill="hsl(39 100% 94% / 0.1)"
+          fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.06em">
+          44.3°N
+        </text>
+      </g>
     </svg>
   );
 };
