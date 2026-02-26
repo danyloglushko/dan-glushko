@@ -2,7 +2,7 @@ import SiteNavigation from '../components/SiteNavigation';
 import HeroSection from '../components/HeroSection';
 import ChapterSection from '../components/ChapterSection';
 import CrimeaMapSVG from '../components/CrimeaMapSVG';
-import SevastopolDetailSVG from '../components/SevastopolDetailSVG';
+
 import JourneyMapSVG from '../components/JourneyMapSVG';
 import TransferModelSVG from '../components/TransferModelSVG';
 import FeedbackLoopSVG from '../components/FeedbackLoopSVG';
@@ -56,7 +56,6 @@ const Index = () => {
           </div>
           <div className="flex flex-col items-center gap-8 lg:sticky lg:top-32">
             <CrimeaMapSVG />
-            <SevastopolDetailSVG />
           </div>
         </div>
       </ChapterSection>
