@@ -27,7 +27,7 @@ const categories: RecordCategory[] = [
       { text: 'LLM Agent Systems' },
       { text: 'Revenue Automation Infrastructure' },
       { text: 'Blockchain Since 2018' },
-      { text: 'Full Self-Custody Since 2022' },
+      
     ],
   },
   {
