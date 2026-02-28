@@ -22,7 +22,7 @@ const HasslerCoreholderSVG = () => {
   return (
     <svg
       ref={svgRef}
-      viewBox="0 0 960 680"
+      viewBox="0 0 960 750"
       className="w-full h-auto hassler-svg"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -392,36 +392,46 @@ const HasslerCoreholderSVG = () => {
         </text>
       </g>
 
+      {/* === APPARATUS DESCRIPTION (between diagram and record) === */}
+      <g className="hassler-label">
+        <text x="480" y="405" textAnchor="middle"
+          fontSize="7" fill="hsl(39 100% 94% / 0.35)" fontFamily="monospace"
+          letterSpacing="0.15em" fontVariant="small-caps">
+          Complete Coreflooding Apparatus — Pump, Accumulators, Hassler Coreholder, BPR &amp; Fraction Collection
+        </text>
+      </g>
+
       {/* ============================================ */}
       {/* === ENGINEERING RECORD (bottom) === */}
       {/* ============================================ */}
       <g className="hassler-label">
         {/* Background panel */}
-        <rect x="40" y="395" width="880" height="270" rx="4"
+        <rect x="40" y="420" width="880" height="320" rx="4"
           fill="hsl(222 57% 10% / 0.6)" stroke="hsl(33 67% 67% / 0.08)" strokeWidth="0.8" />
 
         {/* Section title */}
-        <text x="480" y="422" textAnchor="middle"
+        <text x="480" y="447" textAnchor="middle"
           fontSize="9" fill="hsl(33 67% 67% / 0.45)" fontFamily="monospace"
           letterSpacing="0.22em">
           ENGINEERING RECORD
         </text>
 
         {/* Thin gold rule under title */}
-        <line x1="420" y1="430" x2="540" y2="430"
+        <line x1="420" y1="455" x2="540" y2="455"
           stroke="hsl(33 67% 67% / 0.2)" strokeWidth="0.8" />
 
         {/* Vertical timeline line */}
-        <line x1="120" y1="450" x2="120" y2="640"
+        <line x1="120" y1="472" x2="120" y2="710"
           stroke="hsl(33 67% 67% / 0.15)" strokeWidth="1.2" />
 
         {/* Timeline items — vertical list */}
         {[
-          { y: 462, num: '01', text: '50+ Tertiary Chemical EOR System Designs' },
-          { y: 498, num: '02', text: '150+ ASP/SP/Polymer Coreflood Programs Designed & Validated' },
-          { y: 534, num: '03', text: '5 Peer-Reviewed SPE Publications' },
-          { y: 570, num: '04', text: 'Kuwait Field Pilot Deployment & Quality Control' },
-          { y: 606, num: '05', text: '12+ Years Designing & Executing Tertiary EOR Programs for Major International Oil Operators' },
+          { y: 484, num: '01', text: '50+ Tertiary Chemical EOR System Designs' },
+          { y: 518, num: '02', text: '150+ ASP/SP/Polymer Coreflood Programs Designed & Validated' },
+          { y: 552, num: '03', text: '5 Peer-Reviewed SPE Publications' },
+          { y: 586, num: '04', text: 'Kuwait Field Pilot Deployment & Quality Control' },
+          { y: 620, num: '05', text: '12+ Years Designing & Executing Tertiary EOR Programs for Major International Oil Operators' },
+          { y: 660, num: '06', text: '' },
         ].map((item, i) => (
           <g key={`tr-${i}`}>
             {/* Node dot */}
@@ -438,13 +448,32 @@ const HasslerCoreholderSVG = () => {
             <line x1={128} y1={item.y} x2={148} y2={item.y}
               stroke="hsl(33 67% 67% / 0.12)" strokeWidth="0.8" />
             {/* Description */}
-            <text x={156} y={item.y + 4}
-              fontSize="10.5" fill="hsl(39 100% 94% / 0.6)" fontFamily="monospace"
-              letterSpacing="0.03em">
-              {item.text}
-            </text>
+            {item.text && (
+              <text x={156} y={item.y + 4}
+                fontSize="10.5" fill="hsl(39 100% 94% / 0.6)" fontFamily="monospace"
+                letterSpacing="0.03em">
+                {item.text}
+              </text>
+            )}
           </g>
         ))}
+
+        {/* Item 06 — multi-line operator list */}
+        <text x={156} y={664}
+          fontSize="10.5" fill="hsl(39 100% 94% / 0.6)" fontFamily="monospace"
+          letterSpacing="0.03em">
+          End-to-End CEOR Programs Delivered For:
+        </text>
+        <text x={156} y={682}
+          fontSize="9" fill="hsl(33 67% 67% / 0.4)" fontFamily="monospace"
+          letterSpacing="0.06em" fontVariant="small-caps">
+          Chevron · ExxonMobil · Kuwait Oil Company · YPF · Cairn · Hilcorp
+        </text>
+        <text x={156} y={698}
+          fontSize="9" fill="hsl(33 67% 67% / 0.4)" fontFamily="monospace"
+          letterSpacing="0.06em" fontVariant="small-caps">
+          Schlumberger · SNF · Baker Hughes · Oxy  (and more)
+        </text>
       </g>
 
       {/* === FLOW ANIMATION PARTICLES === */}
