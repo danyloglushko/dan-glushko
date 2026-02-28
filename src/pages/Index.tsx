@@ -4,7 +4,6 @@ import ChapterSection from '../components/ChapterSection';
 import CrimeaMapSVG from '../components/CrimeaMapSVG';
 
 import JourneyMapSVG from '../components/JourneyMapSVG';
-import ReservoirModel3D from '../components/ReservoirModel3D';
 import TransferModelSVG from '../components/TransferModelSVG';
 import FeedbackLoopSVG from '../components/FeedbackLoopSVG';
 import VentureCard from '../components/VentureCard';
@@ -82,13 +81,6 @@ const Index = () => {
               during live pilot-stage tertiary recovery implementation. 
               The margin for error in oilfield chemical systems is measured 
               in <strong>millions of dollars and environmental consequence</strong>.
-            </p>
-          </div>
-
-          <div className="mt-16">
-            <ReservoirModel3D />
-            <p className="text-center mt-6 font-sans text-[9px] tracking-[0.15em] uppercase text-muted-nav">
-              Reservoir simulation model — stratified fluid zones under constraint
             </p>
           </div>
 
