@@ -22,7 +22,7 @@ const HasslerCoreholderSVG = () => {
   return (
     <svg
       ref={svgRef}
-      viewBox="0 0 960 750"
+      viewBox="0 0 960 720"
       className="w-full h-auto hassler-svg"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -406,7 +406,7 @@ const HasslerCoreholderSVG = () => {
       {/* ============================================ */}
       <g className="hassler-label">
         {/* Background panel */}
-        <rect x="40" y="420" width="880" height="320" rx="4"
+        <rect x="40" y="420" width="880" height="285" rx="4"
           fill="hsl(222 57% 10% / 0.6)" stroke="hsl(33 67% 67% / 0.08)" strokeWidth="0.8" />
 
         {/* Section title */}
@@ -431,7 +431,7 @@ const HasslerCoreholderSVG = () => {
           { y: 552, num: '03', text: '5 Peer-Reviewed SPE Publications' },
           { y: 586, num: '04', text: 'Kuwait Field Pilot Deployment & Quality Control' },
           { y: 620, num: '05', text: '12+ Years Designing & Executing Tertiary EOR Programs for Major International Oil Operators' },
-          { y: 660, num: '06', text: '' },
+          { y: 660, num: '06', text: 'End-to-End CEOR Programs Delivered For: Chevron · ExxonMobil · Kuwait Oil Company · YPF · Cairn · Hilcorp · Schlumberger · SNF · Baker Hughes · Oxy (and more)' },
         ].map((item, i) => (
           <g key={`tr-${i}`}>
             {/* Node dot */}
@@ -458,22 +458,6 @@ const HasslerCoreholderSVG = () => {
           </g>
         ))}
 
-        {/* Item 06 — multi-line operator list */}
-        <text x={156} y={664}
-          fontSize="10.5" fill="hsl(39 100% 94% / 0.6)" fontFamily="monospace"
-          letterSpacing="0.03em">
-          End-to-End CEOR Programs Delivered For:
-        </text>
-        <text x={156} y={682}
-          fontSize="9" fill="hsl(33 67% 67% / 0.4)" fontFamily="monospace"
-          letterSpacing="0.06em" fontVariant="small-caps">
-          Chevron · ExxonMobil · Kuwait Oil Company · YPF · Cairn · Hilcorp
-        </text>
-        <text x={156} y={698}
-          fontSize="9" fill="hsl(33 67% 67% / 0.4)" fontFamily="monospace"
-          letterSpacing="0.06em" fontVariant="small-caps">
-          Schlumberger · SNF · Baker Hughes · Oxy  (and more)
-        </text>
       </g>
 
       {/* === FLOW ANIMATION PARTICLES === */}
