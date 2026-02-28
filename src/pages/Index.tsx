@@ -128,8 +128,7 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="prose-editorial space-y-6">
             <p>
-              AI automation. Blockchain architecture since 2018. 
-              Self-custody protocols since 2022. Not separate interests — 
+              AI automation. Blockchain architecture since 2018. Not separate interests — 
               <strong>the same interest applied across different substrates</strong>.
             </p>
             <p>
