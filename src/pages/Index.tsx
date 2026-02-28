@@ -86,9 +86,6 @@ const Index = () => {
 
           <div className="mt-16">
             <HasslerCoreholderSVG />
-            <p className="text-center mt-6 font-sans text-[9px] tracking-[0.15em] uppercase text-muted-nav">
-              Complete Coreflooding Apparatus — Pump, Accumulators, Hassler Coreholder, BPR & Fraction Collection
-            </p>
           </div>
         </div>
       </ChapterSection>
