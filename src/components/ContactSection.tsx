@@ -34,6 +34,10 @@ const ContactSection = () => {
               className="font-sans text-[10px] tracking-[0.15em] uppercase text-muted-nav hover:text-gold transition-colors">
               Livadea Systems
             </a>
+            <a href="https://getokana.com" target="_blank" rel="noopener noreferrer"
+              className="font-sans text-[10px] tracking-[0.15em] uppercase text-muted-nav hover:text-gold transition-colors">
+              Okana
+            </a>
           </div>
           <span className="font-sans text-[10px] text-muted-nav tracking-wider">
             © {new Date().getFullYear()}
