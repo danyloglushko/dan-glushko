@@ -3,7 +3,7 @@ import HeroSection from '../components/HeroSection';
 import ChapterSection from '../components/ChapterSection';
 import CrimeaMapSVG from '../components/CrimeaMapSVG';
 
-import JourneyMapSVG from '../components/JourneyMapSVG';
+import HasslerCoreholderSVG from '../components/HasslerCoreholderSVG';
 import TransferModelSVG from '../components/TransferModelSVG';
 import FeedbackLoopSVG from '../components/FeedbackLoopSVG';
 import VentureCard from '../components/VentureCard';
@@ -85,9 +85,9 @@ const Index = () => {
           </div>
 
           <div className="mt-16">
-            <JourneyMapSVG />
+            <HasslerCoreholderSVG />
             <p className="text-center mt-6 font-sans text-[9px] tracking-[0.15em] uppercase text-muted-nav">
-              Sevastopol → Temple → Austin → Kuwait
+              Hassler-Type Steel Coreholder — High-Pressure Coreflooding Apparatus
             </p>
           </div>
         </div>
