@@ -22,7 +22,7 @@ const HasslerCoreholderSVG = () => {
   return (
     <svg
       ref={svgRef}
-      viewBox="0 0 960 580"
+      viewBox="0 0 960 620"
       className="w-full h-auto hassler-svg"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -397,7 +397,7 @@ const HasslerCoreholderSVG = () => {
       {/* ============================================ */}
       <g className="hassler-label">
         {/* Background panel */}
-        <rect x="40" y="400" width="880" height="160" rx="5"
+        <rect x="40" y="400" width="880" height="200" rx="5"
           fill="hsl(33 67% 67% / 0.02)" stroke="hsl(33 67% 67% / 0.1)" strokeWidth="0.8" />
         {/* Timeline title */}
         <text x="480" y="428" textAnchor="middle"
@@ -431,6 +431,17 @@ const HasslerCoreholderSVG = () => {
             </text>
           </g>
         ))}
+        {/* Institutional credit line */}
+        <text x="480" y="540" textAnchor="middle"
+          fontSize="7" fill="hsl(33 67% 67% / 0.35)" fontFamily="monospace"
+          letterSpacing="0.12em" fontVariant="small-caps">
+          Programs executed in support of major international operators including ExxonMobil, Chevron, YPF, and Kuwait Oil Company.
+        </text>
+        <text x="480" y="556" textAnchor="middle"
+          fontSize="6.5" fill="hsl(39 100% 94% / 0.22)" fontFamily="monospace"
+          letterSpacing="0.1em" fontVariant="small-caps">
+          Executed through Ultimate EOR.
+        </text>
       </g>
 
       {/* === FLOW ANIMATION PARTICLES === */}
