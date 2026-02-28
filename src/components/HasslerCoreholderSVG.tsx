@@ -22,7 +22,7 @@ const HasslerCoreholderSVG = () => {
   return (
     <svg
       ref={svgRef}
-      viewBox="0 0 960 620"
+      viewBox="0 0 960 680"
       className="w-full h-auto hassler-svg"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -393,55 +393,58 @@ const HasslerCoreholderSVG = () => {
       </g>
 
       {/* ============================================ */}
-      {/* === EXPERIENCE TIMELINE (bottom) === */}
+      {/* === ENGINEERING RECORD (bottom) === */}
       {/* ============================================ */}
       <g className="hassler-label">
         {/* Background panel */}
-        <rect x="40" y="400" width="880" height="200" rx="5"
-          fill="hsl(33 67% 67% / 0.02)" stroke="hsl(33 67% 67% / 0.1)" strokeWidth="0.8" />
-        {/* Timeline title */}
-        <text x="480" y="428" textAnchor="middle"
-          fontSize="10" fill="hsl(33 67% 67% / 0.5)" fontFamily="monospace"
-          letterSpacing="0.2em" fontWeight="600">
+        <rect x="40" y="395" width="880" height="270" rx="4"
+          fill="hsl(222 57% 10% / 0.6)" stroke="hsl(33 67% 67% / 0.08)" strokeWidth="0.8" />
+
+        {/* Section title */}
+        <text x="480" y="422" textAnchor="middle"
+          fontSize="9" fill="hsl(33 67% 67% / 0.45)" fontFamily="monospace"
+          letterSpacing="0.22em">
           ENGINEERING RECORD
         </text>
-        {/* Main timeline line */}
-        <line x1="80" y1="465" x2="880" y2="465"
-          stroke="hsl(33 67% 67% / 0.25)" strokeWidth="1.4" />
-        {/* Timeline markers */}
+
+        {/* Thin gold rule under title */}
+        <line x1="420" y1="430" x2="540" y2="430"
+          stroke="hsl(33 67% 67% / 0.2)" strokeWidth="0.8" />
+
+        {/* Vertical timeline line */}
+        <line x1="120" y1="450" x2="120" y2="640"
+          stroke="hsl(33 67% 67% / 0.15)" strokeWidth="1.2" />
+
+        {/* Timeline items — vertical list */}
         {[
-          { x: 120, label: '50+ Tertiary Chemical', sub: 'EOR System Designs' },
-          { x: 300, label: '150+ ASP/SP/Polymer', sub: 'Coreflood Programs Designed & Validated' },
-          { x: 480, label: '5 Peer-Reviewed', sub: 'SPE Publications' },
-          { x: 650, label: 'Kuwait Field Pilot', sub: 'Deployment & Quality Control' },
-          { x: 830, label: '12+ Years Designing & Executing', sub: 'Tertiary EOR Programs for Major Intl. Oil Operators' },
+          { y: 462, num: '01', text: '50+ Tertiary Chemical EOR System Designs' },
+          { y: 498, num: '02', text: '150+ ASP/SP/Polymer Coreflood Programs Designed & Validated' },
+          { y: 534, num: '03', text: '5 Peer-Reviewed SPE Publications' },
+          { y: 570, num: '04', text: 'Kuwait Field Pilot Deployment & Quality Control' },
+          { y: 606, num: '05', text: '12+ Years Designing & Executing Tertiary EOR Programs for Major International Oil Operators' },
         ].map((item, i) => (
-          <g key={`tm-${i}`}>
-            <circle cx={item.x} cy={465} r="5" fill="hsl(33 67% 67% / 0.2)"
-              stroke="hsl(33 67% 67% / 0.6)" strokeWidth="1.2" />
-            <text x={item.x} y={490} textAnchor="middle"
-              fontSize="11" fill="hsl(33 67% 67% / 0.75)" fontFamily="monospace"
-              fontWeight="700" letterSpacing="0.06em">
-              {item.label}
+          <g key={`tr-${i}`}>
+            {/* Node dot */}
+            <circle cx={120} cy={item.y} r="3.5"
+              fill="hsl(33 67% 67% / 0.15)"
+              stroke="hsl(33 67% 67% / 0.5)" strokeWidth="1.2" />
+            {/* Ordinal */}
+            <text x={90} y={item.y + 4} textAnchor="end"
+              fontSize="8" fill="hsl(33 67% 67% / 0.3)" fontFamily="monospace"
+              letterSpacing="0.08em">
+              {item.num}
             </text>
-            <text x={item.x} y={508} textAnchor="middle"
-              fontSize="8.5" fill="hsl(39 100% 94% / 0.4)" fontFamily="monospace"
-              letterSpacing="0.04em">
-              {item.sub}
+            {/* Connector tick */}
+            <line x1={128} y1={item.y} x2={148} y2={item.y}
+              stroke="hsl(33 67% 67% / 0.12)" strokeWidth="0.8" />
+            {/* Description */}
+            <text x={156} y={item.y + 4}
+              fontSize="10.5" fill="hsl(39 100% 94% / 0.6)" fontFamily="monospace"
+              letterSpacing="0.03em">
+              {item.text}
             </text>
           </g>
         ))}
-        {/* Institutional credit line */}
-        <text x="480" y="540" textAnchor="middle"
-          fontSize="7" fill="hsl(33 67% 67% / 0.35)" fontFamily="monospace"
-          letterSpacing="0.12em" fontVariant="small-caps">
-          Programs executed in support of major international operators including ExxonMobil, Chevron, YPF, and Kuwait Oil Company.
-        </text>
-        <text x="480" y="556" textAnchor="middle"
-          fontSize="6.5" fill="hsl(39 100% 94% / 0.22)" fontFamily="monospace"
-          letterSpacing="0.1em" fontVariant="small-caps">
-          Executed through Ultimate EOR.
-        </text>
       </g>
 
       {/* === FLOW ANIMATION PARTICLES === */}
