@@ -410,12 +410,11 @@ const HasslerCoreholderSVG = () => {
           stroke="hsl(33 67% 67% / 0.25)" strokeWidth="1.4" />
         {/* Timeline markers */}
         {[
-          { x: 110, label: '50+ EOR', sub: 'System Designs' },
-          { x: 270, label: 'ASP / SP', sub: 'Polymer Floods' },
-          { x: 420, label: '5 SPE', sub: 'Published Papers' },
-          { x: 570, label: 'Kuwait', sub: 'Pilot QC' },
-          { x: 720, label: '10+ Years', sub: 'Coreflood Programs' },
-          { x: 860, label: 'Intl.', sub: 'Deployment' },
+          { x: 120, label: '50+ EOR', sub: 'System Designs' },
+          { x: 300, label: '150+ ASP/SP/Polymer', sub: 'Coreflood Experiments Executed' },
+          { x: 500, label: '5 SPE', sub: 'Published Papers' },
+          { x: 660, label: 'Kuwait', sub: 'Pilot QC' },
+          { x: 830, label: '10+ Years', sub: 'Coreflood Programs' },
         ].map((item, i) => (
           <g key={`tm-${i}`}>
             <circle cx={item.x} cy={465} r="5" fill="hsl(33 67% 67% / 0.2)"
