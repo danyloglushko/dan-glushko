@@ -22,7 +22,7 @@ const HasslerCoreholderSVG = () => {
   return (
     <svg
       ref={svgRef}
-      viewBox="0 0 960 520"
+      viewBox="0 0 960 580"
       className="w-full h-auto hassler-svg"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -396,38 +396,42 @@ const HasslerCoreholderSVG = () => {
       {/* === EXPERIENCE TIMELINE (bottom) === */}
       {/* ============================================ */}
       <g className="hassler-label">
-        <line x1="60" y1="430" x2="900" y2="430"
-          stroke="hsl(33 67% 67% / 0.15)" strokeWidth="1" />
+        {/* Background panel */}
+        <rect x="40" y="400" width="880" height="160" rx="5"
+          fill="hsl(33 67% 67% / 0.02)" stroke="hsl(33 67% 67% / 0.1)" strokeWidth="0.8" />
+        {/* Timeline title */}
+        <text x="480" y="428" textAnchor="middle"
+          fontSize="10" fill="hsl(33 67% 67% / 0.5)" fontFamily="monospace"
+          letterSpacing="0.2em" fontWeight="600">
+          ENGINEERING RECORD
+        </text>
+        {/* Main timeline line */}
+        <line x1="80" y1="465" x2="880" y2="465"
+          stroke="hsl(33 67% 67% / 0.25)" strokeWidth="1.4" />
         {/* Timeline markers */}
         {[
-          { x: 100, label: '50+ EOR', sub: 'System Designs' },
-          { x: 260, label: 'ASP / SP', sub: 'Polymer Floods' },
+          { x: 110, label: '50+ EOR', sub: 'System Designs' },
+          { x: 270, label: 'ASP / SP', sub: 'Polymer Floods' },
           { x: 420, label: '5 SPE', sub: 'Published Papers' },
-          { x: 580, label: 'Kuwait', sub: 'Pilot QC' },
-          { x: 740, label: '10+ Years', sub: 'Coreflood Programs' },
-          { x: 870, label: 'Intl.', sub: 'Deployment' },
+          { x: 570, label: 'Kuwait', sub: 'Pilot QC' },
+          { x: 720, label: '10+ Years', sub: 'Coreflood Programs' },
+          { x: 860, label: 'Intl.', sub: 'Deployment' },
         ].map((item, i) => (
           <g key={`tm-${i}`}>
-            <circle cx={item.x} cy={430} r="3" fill="hsl(33 67% 67% / 0.3)"
-              stroke="hsl(33 67% 67% / 0.5)" strokeWidth="0.8" />
-            <text x={item.x} y={448} textAnchor="middle"
-              fontSize="7" fill="hsl(33 67% 67% / 0.6)" fontFamily="monospace"
-              fontWeight="600" letterSpacing="0.06em">
+            <circle cx={item.x} cy={465} r="5" fill="hsl(33 67% 67% / 0.2)"
+              stroke="hsl(33 67% 67% / 0.6)" strokeWidth="1.2" />
+            <text x={item.x} y={490} textAnchor="middle"
+              fontSize="11" fill="hsl(33 67% 67% / 0.75)" fontFamily="monospace"
+              fontWeight="700" letterSpacing="0.06em">
               {item.label}
             </text>
-            <text x={item.x} y={460} textAnchor="middle"
-              fontSize="5.5" fill="hsl(39 100% 94% / 0.3)" fontFamily="monospace"
+            <text x={item.x} y={508} textAnchor="middle"
+              fontSize="8.5" fill="hsl(39 100% 94% / 0.4)" fontFamily="monospace"
               letterSpacing="0.04em">
               {item.sub}
             </text>
           </g>
         ))}
-        {/* Timeline title */}
-        <text x="60" y="418" textAnchor="start"
-          fontSize="6" fill="hsl(33 67% 67% / 0.35)" fontFamily="monospace"
-          letterSpacing="0.12em">
-          ENGINEERING RECORD
-        </text>
       </g>
 
       {/* === FLOW ANIMATION PARTICLES === */}
