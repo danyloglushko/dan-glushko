@@ -13,30 +13,30 @@ const categories: RecordCategory[] = [
   {
     label: 'Engineering Record',
     items: [
-      { text: '10+ Years — Ultimate EOR Services' },
-      { text: '50+ Chemical EOR System Designs' },
-      { text: 'ASP / SP / Polymer Specialization' },
-      { text: '5 SPE Published Papers' },
-      { text: 'International Deployment — Kuwait Pilot QC' },
+      { text: '12+ Years — Executed Tertiary EOR Programs' },
+      { text: '50+ Chemical EOR Systems Designed & Validated' },
+      { text: 'ASP / SP / Polymer — Lab Through Pilot' },
+      { text: '5 SPE Papers — Documented for Reproducibility' },
+      { text: 'Kuwait Pilot — Deployed for Field QC' },
     ],
   },
   {
     label: 'Systems & Architecture',
     items: [
-      { text: 'AI Workflow Engineering' },
-      { text: 'LLM Agent Systems' },
+      { text: 'AI Workflow Engineering & Deployment' },
+      { text: 'LLM Agent Systems — Designed & Operated' },
       { text: 'Revenue Automation Infrastructure' },
-      { text: 'Blockchain Since 2018' },
+      { text: 'Blockchain Architecture Since 2018' },
       
     ],
   },
   {
     label: 'Entrepreneurship',
     items: [
-      { text: 'Founder Experience — Marketplace Ecommerce' },
-      { text: 'Brand Acquisition & Systems Rebuild — Okana' },
-      { text: 'Infrastructure Migration & Front-End Architecture' },
-      { text: 'Operational Automation Integration' },
+      { text: 'Founded & Operated — Marketplace Ecommerce' },
+      { text: 'Acquired & Rebuilt — Okana (DTC Brand)' },
+      { text: 'Migrated Infrastructure & Redesigned Front-End' },
+      { text: 'Integrated Operational Automation End-to-End' },
     ],
   },
 ];

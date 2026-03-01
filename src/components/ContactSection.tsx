@@ -10,7 +10,7 @@ const ContactSection = () => {
           <div className="divider-gold mx-auto mb-8" />
           <h2 className="heading-serif text-4xl md:text-5xl mb-6">Contact</h2>
           <p className="prose-editorial mx-auto text-center mb-10">
-            For strategic inquiries, partnerships, or collaboration — reach out directly.
+            For operational inquiries, partnerships, or collaboration — reach out directly.
           </p>
           <a
             href="mailto:dan@livadea.com"

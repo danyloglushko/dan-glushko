@@ -24,34 +24,34 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="prose-editorial space-y-6">
             <p>
-              Sevastopol is a naval city. Harbors, steel, ships built to endure weather.
+              Sevastopol is a naval city. Harbors, steel, ships engineered to take weather head-on.
             </p>
             <p>
-              It was the first environment I understood — even if I didn't have the language for it.
+              That was the first environment I understood — before I had any vocabulary for it.
             </p>
             <p>
-              At eight years old, I immigrated to the United States with my mother. We landed in Temple, Texas. Different language. Different rules. Different assumptions about how the world worked.
+              At eight, I immigrated to the United States with my mother. We landed in Temple, Texas. Different language. Different rules. Every assumption about how systems worked had to be rebuilt from scratch.
             </p>
             <p>
-              Nothing felt stable at first.
+              Nothing was given. Everything was constructed.
             </p>
             <p>
-              When you move that young, you don't think in terms of opportunity. You think in terms of <strong>orientation</strong>. You're trying to understand the new system — how people speak, how schools function, what earns respect, what doesn't.
+              When you move that young, you don't think about opportunity. You think about <strong>orientation</strong> — how people communicate, how institutions function, what's rewarded, what's ignored.
             </p>
             <p>
-              My mother worked long hours. Stability wasn't assumed. It was built deliberately.
+              My mother worked long hours. Stability wasn't inherited. She engineered it, day by day, with no margin for error.
             </p>
             <p>
-              That was the first lesson.
+              That was the first operating lesson.
             </p>
             <p>
-              Pressure isn't dramatic. It's clarifying. It shows you which structures hold and which ones were decorative all along.
+              When what you built was the only thing holding everything up, you began to see which parts were decoration and which were load-bearing.
             </p>
             <p>
               Some people try to escape pressure.
             </p>
             <p>
-              <strong>I learned to observe it.</strong>
+              <strong>I learned to measure it.</strong>
             </p>
           </div>
           <div className="flex flex-col items-center gap-8 lg:sticky lg:top-32">
@@ -65,22 +65,13 @@ const Index = () => {
         <div className="space-y-12">
           <div className="prose-editorial space-y-6 max-w-3xl">
             <p>
-              Petroleum engineering at the University of Texas at Austin: understanding 
-              <strong> invisible fluid dynamics under extreme constraint</strong>. 
-              Every reservoir is a black box. The engineer's discipline is building 
-              models accurate enough to make decisions without opening it.
+              Petroleum engineering at the University of Texas at Austin taught me one thing above all: how to <strong>make decisions about systems you can't directly observe</strong>. Every reservoir is a black box. The discipline is building models precise enough to act on — without ever opening it.
             </p>
             <p>
-              Designed and executed 50+ tertiary chemical EOR systems across 
-              laboratory validation and live pilot environments. Published five 
-              peer-reviewed technical papers through the Society of Petroleum Engineers 
-              on ASP and polymer design.
+              I designed and executed over 50 tertiary chemical EOR systems — ASP, surfactant-polymer, standalone polymer — across laboratory validation and live pilot environments. Documented and published chemical recovery designs for reproducibility and knowledge transfer through five SPE papers.
             </p>
             <p>
-              Deployed internationally to Kuwait to conduct quality control 
-              during live pilot-stage tertiary recovery implementation. 
-              The margin for error in oilfield chemical systems is measured 
-              in <strong>millions of dollars and environmental consequence</strong>.
+              Deployed to Kuwait for quality control during a live pilot-stage chemical recovery program. In oilfield chemical systems, the cost of a miscalculation is measured in <strong>millions of dollars and environmental consequence</strong>. That's the operating standard I trained under.
             </p>
           </div>
 
@@ -94,24 +85,16 @@ const Index = () => {
       <ChapterSection id="failure" number="III" title="Failure as Calibration">
         <div className="prose-editorial space-y-6 max-w-3xl">
           <p>
-            The entrepreneurial path is a <strong>calibration sequence</strong>. 
-            Every venture that doesn't scale reveals where the model breaks — 
-            information no successful venture provides.
+            Every venture that didn't scale gave me something no successful one could — <strong>a precise map of where the model breaks</strong>.
           </p>
           <p>
-            The Okana rebuild was a structural reassessment. The original architecture 
-            had a flaw not in execution but in <strong>load distribution</strong> — 
-            designed for conditions that didn't exist. The rebuild was designed 
-            for conditions that did.
+            When I acquired Okana, the product was sound but the infrastructure had degraded. The flaw wasn't execution — it was <strong>load distribution</strong>. The system was designed for conditions that didn't exist. I rebuilt it for the conditions that did.
           </p>
           <p>
-            Failure is the sensor array that makes success navigable. 
-            Without failure data, you're optimizing against 
-            a model you've never validated.
+            Without failure data, you're optimizing against a model you've never validated. I've validated mine — repeatedly, at cost, across different substrates.
           </p>
           <p>
-            The shift: from building systems that assumed stability 
-            to building systems that <strong>assumed variance</strong>.
+            That process shifted how I build: from designing systems that assume stability to engineering systems that <strong>absorb variance</strong>.
           </p>
         </div>
 
@@ -128,22 +111,16 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="prose-editorial space-y-6">
             <p>
-              AI automation. Blockchain architecture since 2018. Not separate interests — 
-              <strong>the same interest applied across different substrates</strong>.
+              I've engineered AI automation workflows and blockchain infrastructure since 2018. These aren't separate interests — <strong>they're the same discipline applied across different substrates</strong>.
             </p>
             <p>
-              The common thread: systems that operate with minimal human intervention 
-              and maximum structural integrity. Whether it's reservoir management, 
-              an autonomous business process, or a self-custodied asset — 
-              the design philosophy is identical.
+              The common thread: systems that operate with minimal human intervention and maximum structural integrity. Whether I'm designing a chemical injection sequence, an autonomous revenue workflow, or a decentralized protocol — the architecture follows the same principles.
             </p>
             <p>
-              Architecture is making decisions now that constrain decisions later — 
-              so that <strong>the constraints become advantages</strong>.
+              Architecture means making decisions now that constrain decisions later — so that <strong>the constraints become advantages</strong>.
             </p>
             <p>
-              The question isn't "how do we automate this?" 
-              It's <strong>"what structure makes automation inevitable?"</strong>
+              The question I optimize for isn't "how do we automate this?" It's <strong>"what structure makes automation inevitable?"</strong>
             </p>
           </div>
           <div>
@@ -159,22 +136,16 @@ const Index = () => {
       <ChapterSection id="durability" number="V" title="Durability">
         <div className="prose-editorial space-y-6 max-w-3xl">
           <p>
-            The final chapter isn't about growth. It's about <strong>what remains</strong>.
+            This chapter isn't about growth. It's about <strong>what remains when you stop adding</strong>.
           </p>
           <p>
-            His mother — the original architect of pressure navigation — 
-            is the most important structural element in every system built. 
-            The most durable systems are built on <strong>foundations 
-            that predate the architect</strong>.
+            My mother — the person who engineered stability out of nothing — is the most important structural element in everything I've built. The most durable systems are built on <strong>foundations that predate the architect</strong>.
           </p>
           <p>
-            Family is the load-bearing wall. Legacy isn't built by moving fast. 
-            It's built by <strong>designing systems that compound 
-            after you stop touching them</strong>.
+            Family is the load-bearing wall. Legacy isn't built by moving fast. It's built by <strong>designing systems that compound after you stop touching them</strong>.
           </p>
           <p>
-            Restraint is the final optimization. Knowing what not to build. 
-            What not to disrupt. <strong>The architect's last move is stillness.</strong>
+            Restraint is the final optimization. Knowing what not to build. What not to disrupt. <strong>The last move is stillness.</strong>
           </p>
         </div>
 
@@ -215,19 +186,19 @@ const Index = () => {
             <VentureCard
               name="Livadea"
               role="Holding Company"
-              description="Acquiring and operating durable small businesses with long-term stewardship. Built to compound across cycles, not chase them."
+              description="I acquire and operate durable small businesses with long-term stewardship. Engineered to compound across cycles, not chase them."
               url="https://livadea.com"
             />
             <VentureCard
               name="Livadea Systems"
               role="AI Systems Firm"
-              description="Autonomous systems architecture. Signal processing, optimization loops, and intelligent automation for enterprises scaling without scaling headcount."
+              description="I design autonomous systems — signal processing, optimization loops, and intelligent automation — for enterprises that need to scale operations without scaling headcount."
               url="https://systems.livadea.com"
             />
           </div>
 
           <p className="mt-10 font-sans text-xs text-muted-foreground tracking-wide text-center max-w-lg mx-auto">
-            Focused on acquiring and operating durable small businesses with long-term stewardship — not short-term extraction.
+            Every entity is designed for operational durability — not short-term extraction.
           </p>
         </div>
       </section>

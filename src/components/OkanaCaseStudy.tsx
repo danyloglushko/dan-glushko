@@ -1,13 +1,13 @@
 import useScrollReveal from '../hooks/useScrollReveal';
 
 const capabilities = [
-  'Brand acquisition & due diligence',
+  'Brand acquisition & operational due diligence',
   'Infrastructure migration to modern stack',
-  'Front-end architecture rebuild',
-  'Subscription system redesign',
+  'Front-end architecture redesigned for conversion',
+  'Subscription engine rebuilt end-to-end',
   'API integrations & third-party orchestration',
-  'AI-enabled customer workflows',
-  'Conversion optimization via systems analysis',
+  'AI-enabled customer workflows deployed',
+  'Conversion optimization validated through systems analysis',
 ];
 
 const OkanaCaseStudy = () => {
@@ -27,15 +27,15 @@ const OkanaCaseStudy = () => {
         <div className="reveal grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start" style={{ transitionDelay: '0.15s' }}>
           <div className="prose-editorial space-y-6">
             <p>
-              Okana was not a brand launch — it was a <strong>systems rebuild</strong>. 
-              The acquisition presented a structurally sound product with 
-              deteriorating infrastructure and fragmented operations.
+              Okana wasn't a brand launch — it was a <strong>systems rebuild</strong>. 
+              I acquired a structurally sound product sitting on deteriorating 
+              infrastructure with fragmented operations.
             </p>
             <p>
-              The intervention was architectural: migrate the technology stack, 
-              redesign the subscription engine, integrate AI-driven customer workflows, 
-              and rebuild the front-end for conversion performance. 
-              Every decision was evaluated against <strong>long-term operational cost</strong>, 
+              The intervention was architectural: I migrated the technology stack, 
+              redesigned the subscription engine, integrated AI-driven customer workflows, 
+              and rebuilt the front-end for measurable conversion performance. 
+              Every decision was evaluated against <strong>long-term operational cost</strong> — 
               not short-term growth metrics.
             </p>
             <p>
