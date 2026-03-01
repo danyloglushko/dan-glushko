@@ -20,8 +20,8 @@ const HeroSection = () => {
         </h1>
 
         <p className="prose-editorial mx-auto text-base md:text-lg max-w-xl">
-          Designing durable systems across engineering, enterprise, and AI. 
-          Where entropy is the default, structure is the strategy.
+          Designing systems so they don't just perform — they persist.
+          Engineered across petroleum, enterprise, and AI.
         </p>
 
         <div className="mt-16 flex flex-col items-center gap-4">

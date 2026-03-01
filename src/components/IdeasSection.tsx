@@ -2,28 +2,28 @@ import useScrollReveal from '../hooks/useScrollReveal';
 
 const ideas = [
   {
-    title: 'Entropy is the default',
-    body: 'Every system degrades without deliberate architecture. The question is never whether things fall apart — it\'s whether decay outpaces repair.',
+    title: 'Entropy is the operating default',
+    body: 'Every system I\'ve touched degrades without deliberate maintenance. The question was never whether things fall apart — it was whether I could engineer the repair cycle faster than the decay.',
   },
   {
-    title: 'Architecture beats effort',
-    body: 'A well-designed system outperforms brilliant operators running a broken one. Structure multiplies. Effort adds.',
+    title: 'Architecture outperforms effort',
+    body: 'I\'ve watched brilliant operators burn out running broken systems. A well-designed structure multiplies output. Raw effort only adds to it. I choose structure every time.',
   },
   {
-    title: 'Optimization lives at the margins',
-    body: 'The greatest returns hide in the overlooked — the second-order effects, the friction nobody measured, the incentive nobody questioned.',
+    title: 'The highest returns hide at the margins',
+    body: 'The biggest gains I\'ve captured weren\'t in the obvious places. They were in the second-order effects nobody measured, the friction nobody quantified, the incentive nobody questioned.',
   },
   {
     title: 'Incentives drive outcomes more reliably than intention',
-    body: 'Design the incentive structure correctly and the system self-corrects. Design it poorly and no amount of management compensates.',
+    body: 'I\'ve designed incentive structures that self-corrected without management — and seen well-intentioned ones collapse under their own misalignment. Get the incentives right and the system runs itself.',
   },
   {
-    title: 'Durability is a strategy',
-    body: 'The companies, systems, and people that endure were designed to absorb variance, not outrun it.',
+    title: 'Durability is a strategy, not a byproduct',
+    body: 'The systems, businesses, and people that endure weren\'t lucky — they were engineered to absorb variance, not outrun it. I build for that.',
   },
   {
-    title: 'Perception is architecture',
-    body: 'How a system is understood shapes outcomes more than how it functions. The invisible forces — framing, context, incentives — are the real levers.',
+    title: 'Perception is load-bearing',
+    body: 'How a system is understood shapes outcomes more than how it functions. The invisible forces — framing, context, positioning — are the real levers. I learned that selling chemical programs to skeptical operators.',
   },
 ];
 
