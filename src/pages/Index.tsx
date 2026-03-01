@@ -24,34 +24,55 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="prose-editorial space-y-6">
             <p>
-              Sevastopol is a naval city. Harbors, steel, ships engineered to take weather head-on.
+              Sevastopol sits on the Black Sea — a naval city of harbors, salt air, and steel ships built to endure weather. Long summer evenings. Stone embankments. A place that felt permanent, even when history around it rarely was.
             </p>
             <p>
-              That was the first environment I understood — before I had any vocabulary for it.
+              It was home before it was geopolitics.
             </p>
             <p>
-              At eight, I immigrated to the United States with my mother. We landed in Temple, Texas. Different language. Different rules. Every assumption about how systems worked had to be rebuilt from scratch.
+              As a child, I didn't think about strategy or borders. I remember the rhythm of the water, the weight of the harbor cranes, the quiet understanding that things were built to hold.
             </p>
             <p>
-              Nothing was given. Everything was constructed.
+              At eight years old, my mother decided to move us to the United States.
             </p>
             <p>
-              When you move that young, you don't think about opportunity. You think about <strong>orientation</strong> — how people communicate, how institutions function, what's rewarded, what's ignored.
+              Not for adventure. Not for comfort. For possibility.
             </p>
             <p>
-              My mother worked long hours. Stability wasn't inherited. She engineered it, day by day, with no margin for error.
+              We landed in Temple, Texas. The sky felt larger. The rules felt invisible. The language moved faster than I did.
             </p>
             <p>
-              That was the first operating lesson.
+              I didn't just move countries.
             </p>
             <p>
-              When what you built was the only thing holding everything up, you began to see which parts were decoration and which were load-bearing.
+              <strong>I moved operating systems.</strong>
+            </p>
+            <p>
+              In Crimea, life felt structured around endurance. In Texas, it felt structured around expansion. One world carried history in its architecture. The other carried optimism in its air.
+            </p>
+            <p>
+              When you move that young, you don't think in terms of opportunity. You think in terms of <strong>orientation</strong>. You study how things work. How people signal status. How institutions reward effort. What assumptions are shared. Which ones aren't.
+            </p>
+            <p>
+              My mother worked long hours to make that transition possible. Moving continents is a logistical decision. Moving a child between worlds is something else entirely. It requires belief before evidence.
+            </p>
+            <p>
+              Stability wasn't assumed. It was constructed.
+            </p>
+            <p>
+              That was the first lesson.
+            </p>
+            <p>
+              Pressure isn't loud. It's clarifying. It reveals which structures carry weight and which ones were decorative.
             </p>
             <p>
               Some people try to escape pressure.
             </p>
             <p>
-              <strong>I learned to measure it.</strong>
+              <strong>I learned to observe it.</strong>
+            </p>
+            <p>
+              And once you've lived inside two systems, you begin to notice how all systems behave.
             </p>
           </div>
           <div className="flex flex-col items-center gap-8 lg:sticky lg:top-32">
