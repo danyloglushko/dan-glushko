@@ -24,7 +24,7 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="prose-editorial space-y-6">
             <p>
-              Sevastopol sits on the Black Sea — a naval city of harbors, salt air, and steel ships built to endure weather. Long summer evenings. Stone embankments. A place that felt permanent, even when history around it rarely was.
+              Sevastopol (seh-vahs-TOH-puhl) sits on the Black Sea — a naval city of harbors, salt air, and steel ships built to endure weather. Long summer evenings. Stone embankments. A place that felt permanent, even when history around it rarely was.
             </p>
             <p>
               It was home before it was geopolitics.
