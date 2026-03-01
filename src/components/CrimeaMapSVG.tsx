@@ -92,18 +92,55 @@ const COASTLINE: [number, number][] = [
   [34.865,45.794],[34.919,45.775],[34.945,45.764],[34.960,45.757],[34.978,45.763],
 ];
 
-// Projection constants — bounding box from the data
+// Simplified Texas outline — key boundary points [longitude, latitude]
+const TEXAS_OUTLINE: [number, number][] = [
+  [-106.63, 31.87], [-106.63, 32.00], [-103.06, 32.00], [-103.06, 36.50],
+  [-100.00, 36.50], [-100.00, 34.56], [-99.47, 34.38], [-99.21, 34.01],
+  [-98.77, 33.89], [-98.09, 33.75], [-97.48, 33.89], [-97.17, 33.73],
+  [-96.92, 33.95], [-96.37, 33.73], [-95.84, 33.84], [-95.15, 33.94],
+  [-94.48, 33.64], [-94.04, 33.55], [-94.04, 33.02], [-94.04, 31.99],
+  [-93.82, 31.77], [-93.83, 31.10], [-93.73, 30.51], [-93.71, 30.06],
+  [-93.89, 29.84], [-94.60, 29.47], [-94.74, 29.36], [-95.02, 29.13],
+  [-94.79, 29.04], [-95.14, 28.73], [-95.67, 28.68], [-96.22, 28.58],
+  [-96.49, 28.31], [-96.77, 28.12], [-97.04, 27.84], [-97.17, 27.56],
+  [-97.26, 27.28], [-97.38, 26.94], [-97.14, 26.38], [-97.15, 25.97],
+  [-97.50, 25.84], [-97.74, 26.06], [-98.30, 26.30], [-99.02, 26.40],
+  [-99.17, 26.54], [-99.44, 27.04], [-99.52, 27.56], [-100.11, 28.11],
+  [-100.33, 28.44], [-100.65, 29.10], [-101.06, 29.46], [-101.40, 29.73],
+  [-102.30, 29.88], [-103.14, 29.21], [-103.53, 29.13], [-104.04, 29.33],
+  [-104.58, 29.64], [-104.90, 30.57], [-105.40, 30.84], [-106.20, 31.47],
+  [-106.38, 31.73], [-106.63, 31.87],
+];
+
+// Crimea projection constants
 const MIN_LON = 32.3;
 const MAX_LON = 36.9;
 const MIN_LAT = 44.2;
 const MAX_LAT = 46.35;
 const SVG_W = 520;
-const SVG_H = 340;
+const CRIMEA_H = 340;
+
+// Texas projection constants
+const TX_MIN_LON = -107.5;
+const TX_MAX_LON = -93.0;
+const TX_MIN_LAT = 25.5;
+const TX_MAX_LAT = 37.0;
+const TX_REGION_Y = 430; // top of Texas region
+const TX_REGION_H = 300;
+const TX_PAD = 30;
+
+const TOTAL_H = 750;
 const PAD = 20;
 
 function project(lon: number, lat: number): [number, number] {
   const x = PAD + ((lon - MIN_LON) / (MAX_LON - MIN_LON)) * (SVG_W - 2 * PAD);
-  const y = PAD + ((MAX_LAT - lat) / (MAX_LAT - MIN_LAT)) * (SVG_H - 2 * PAD);
+  const y = PAD + ((MAX_LAT - lat) / (MAX_LAT - MIN_LAT)) * (CRIMEA_H - 2 * PAD);
+  return [x, y];
+}
+
+function projectTexas(lon: number, lat: number): [number, number] {
+  const x = TX_PAD + ((lon - TX_MIN_LON) / (TX_MAX_LON - TX_MIN_LON)) * (SVG_W - 2 * TX_PAD);
+  const y = TX_REGION_Y + TX_PAD + ((TX_MAX_LAT - lat) / (TX_MAX_LAT - TX_MIN_LAT)) * (TX_REGION_H - 2 * TX_PAD);
   return [x, y];
 }
 
@@ -114,7 +151,7 @@ const CrimeaMapSVG = () => {
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
@@ -127,21 +164,42 @@ const CrimeaMapSVG = () => {
     }).join(' ') + ' Z';
   }, []);
 
+  const texasPathD = useMemo(() => {
+    return TEXAS_OUTLINE.map((coord, i) => {
+      const [x, y] = projectTexas(coord[0], coord[1]);
+      return `${i === 0 ? 'M' : 'L'} ${x.toFixed(1)} ${y.toFixed(1)}`;
+    }).join(' ') + ' Z';
+  }, []);
+
   // Sevastopol — positioned at harbor entrance (33.52°E, 44.62°N)
   const [sevX, sevY] = project(33.52, 44.62);
+
+  // Temple, TX — (97.34°W, 31.10°N)
+  const [templeX, templeY] = projectTexas(-97.34, 31.10);
+
+  // Flight path arc control points
+  const arcMidX = (sevX + templeX) / 2 - 80;
+  const arcMidY = (sevY + templeY) / 2;
+
+  const flightPathD = `M ${sevX} ${sevY} Q ${arcMidX} ${arcMidY} ${templeX} ${templeY}`;
 
   // Grid lines
   const gridLons = [33, 34, 35, 36];
   const gridLats = [44.5, 45.0, 45.5, 46.0];
 
+  // Compute flight path length for dash animation
+  const flightPathLength = 1200;
+
   return (
     <svg
       ref={ref}
-      viewBox={`0 0 ${SVG_W} ${SVG_H}`}
+      viewBox={`0 0 ${SVG_W} ${TOTAL_H}`}
       className="w-full max-w-lg mx-auto"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
     >
+      {/* ═══ CRIMEA SECTION ═══ */}
+
       {/* Coordinate grid */}
       {gridLons.map(lon => {
         const [x1, y1] = project(lon, MAX_LAT);
@@ -156,7 +214,7 @@ const CrimeaMapSVG = () => {
           stroke="hsl(39 100% 94% / 0.04)" strokeWidth={0.5} />;
       })}
 
-      {/* Main peninsula outline — real OSM cartographic data */}
+      {/* Main peninsula outline */}
       <path
         d={pathD}
         stroke="hsl(33 67% 67% / 0.5)"
@@ -197,7 +255,7 @@ const CrimeaMapSVG = () => {
         style={{ transition: 'opacity 0.6s ease 2.2s' }}>
         {gridLons.map(lon => {
           const [x] = project(lon, MIN_LAT);
-          return <text key={`lbl-lon-${lon}`} x={x - 8} y={SVG_H - 5} fill="hsl(39 100% 94% / 0.1)"
+          return <text key={`lbl-lon-${lon}`} x={x - 8} y={CRIMEA_H - 5} fill="hsl(39 100% 94% / 0.1)"
             fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.06em">{lon}°E</text>;
         })}
         {gridLats.map(lat => {
@@ -205,6 +263,83 @@ const CrimeaMapSVG = () => {
           return <text key={`lbl-lat-${lat}`} x={5} y={y + 2} fill="hsl(39 100% 94% / 0.1)"
             fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.06em">{lat}°N</text>;
         })}
+      </g>
+
+      {/* ═══ FLIGHT PATH ═══ */}
+      <g className={isVisible ? 'opacity-100' : 'opacity-0'}
+        style={{ transition: 'opacity 0.6s ease 2s' }}>
+        {/* Dashed trail */}
+        <path
+          d={flightPathD}
+          stroke="hsl(33 67% 67% / 0.15)"
+          strokeWidth={0.8}
+          fill="none"
+          strokeDasharray={flightPathLength}
+          strokeDashoffset={isVisible ? 0 : flightPathLength}
+          style={{ transition: 'stroke-dashoffset 2s cubic-bezier(.22,.61,.36,1) 1.8s' }}
+        />
+        {/* Dotted overlay for texture */}
+        <path
+          d={flightPathD}
+          stroke="hsl(33 67% 67% / 0.08)"
+          strokeWidth={0.5}
+          fill="none"
+          strokeDasharray="2 6"
+          className={isVisible ? 'opacity-100' : 'opacity-0'}
+          style={{ transition: 'opacity 1s ease 3s' }}
+        />
+        {/* Distance label on the arc */}
+        <text x={arcMidX + 10} y={arcMidY - 6} fill="hsl(39 100% 94% / 0.15)"
+          fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.1em"
+          className={isVisible ? 'opacity-100' : 'opacity-0'}
+          style={{ transition: 'opacity 0.6s ease 3.2s' }}>
+          9,700 KM
+        </text>
+      </g>
+
+      {/* ═══ TEXAS SECTION ═══ */}
+
+      {/* Texas outline */}
+      <path
+        d={texasPathD}
+        stroke="hsl(33 67% 67% / 0.35)"
+        strokeWidth={1.2}
+        fill="none"
+        strokeLinejoin="round"
+        strokeLinecap="round"
+        strokeDasharray={4000}
+        strokeDashoffset={isVisible ? 0 : 4000}
+        style={{ transition: 'stroke-dashoffset 2s cubic-bezier(.22,.61,.36,1) 2.5s' }}
+      />
+
+      {/* Temple, TX marker */}
+      <g className={isVisible ? 'opacity-100' : 'opacity-0'}
+        style={{ transition: 'opacity 0.8s ease 3.5s' }}>
+        <circle cx={templeX} cy={templeY} r={8}
+          stroke="hsl(33 67% 67% / 0.2)" strokeWidth={0.6} fill="none"
+          className="animate-pulse-subtle" />
+        <circle cx={templeX} cy={templeY} r={3}
+          fill="hsl(33 67% 67% / 0.8)" className="svg-node-glow" />
+
+        <text x={templeX + 14} y={templeY + 3} fill="hsl(33 67% 67% / 0.7)"
+          fontFamily="var(--font-serif)" fontSize={7.5} fontWeight={400}
+          letterSpacing="0.14em" fontStyle="italic">
+          TEMPLE
+        </text>
+        <text x={templeX + 14} y={templeY + 14} fill="hsl(39 100% 94% / 0.2)"
+          fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.06em">
+          31.0982°N · 97.3428°W
+        </text>
+      </g>
+
+      {/* Texas label */}
+      <g className={isVisible ? 'opacity-100' : 'opacity-0'}
+        style={{ transition: 'opacity 0.6s ease 3.8s' }}>
+        <text x={SVG_W - 80} y={TX_REGION_Y + 30} fill="hsl(39 100% 94% / 0.08)"
+          fontFamily="var(--font-serif)" fontSize={10} letterSpacing="0.2em"
+          fontStyle="italic">
+          TEXAS
+        </text>
       </g>
     </svg>
   );
