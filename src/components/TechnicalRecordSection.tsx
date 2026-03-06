@@ -18,29 +18,29 @@ const categories: RecordCategory[] = [
   {
     label: 'Engineering Record',
     items: [
-      { text: '12+ Years Chemical EOR Engineering' },
-      { text: '50+ Chemical EOR System Designs' },
-      { text: '150+ Coreflood Experiments Executed' },
-      { text: 'SPE Technical Publications' },
-      { text: 'Kuwait Field Pilot Deployment' },
+      { text: '12+ years chemical enhanced oil recovery engineering' },
+      { text: '150+ laboratory coreflood experiments executed' },
+      { text: '50+ tertiary recovery system designs evaluated' },
+      { text: 'SPE technical publications and international research programs' },
+      { text: 'Contributions to field pilot programs in the Middle East' },
     ],
   },
   {
-    label: 'Systems & Architecture',
+    label: 'Systems and Architecture',
     items: [
-      { text: 'AI Workflow Engineering & Deployment' },
-      { text: 'LLM Agent Systems, Designed & Operated' },
-      { text: 'Revenue Automation Infrastructure' },
-      { text: 'Blockchain Architecture Since 2018' },
+      { text: 'AI workflow engineering and deployment' },
+      { text: 'LLM agent systems, designed and operated' },
+      { text: 'Revenue automation infrastructure' },
+      { text: 'Blockchain architecture since 2018' },
     ],
   },
   {
     label: 'Entrepreneurship',
     items: [
-      { text: 'Founded & Operated Marketplace Ecommerce' },
-      { text: 'Acquired & Rebuilt Okana (DTC Brand)' },
-      { text: 'Migrated Infrastructure & Redesigned Front End' },
-      { text: 'Integrated Operational Automation End to End' },
+      { text: 'Founded and operated marketplace ecommerce' },
+      { text: 'Acquired and rebuilt Okana (DTC brand)' },
+      { text: 'Migrated infrastructure and redesigned front end' },
+      { text: 'Integrated operational automation end to end' },
     ],
   },
 ];
@@ -48,10 +48,10 @@ const categories: RecordCategory[] = [
 const publications: Publication[] = [
   {
     title: 'Conditioning Polymer Solutions for Injection into Tight Reservoir Rocks',
-    venue: 'SPE Improved Oil Recovery Conference',
+    venue: 'SPE Improved Oil Recovery Conference — Tulsa',
   },
   {
-    title: 'Low Salinity Polymer Flooding in High Temperature Carbonate Reservoirs, West Kuwait',
+    title: 'Low Salinity Polymer Flooding in a High Temperature Low Permeability Carbonate Reservoir in West Kuwait',
     venue: 'SPE Kuwait Oil & Gas Show',
   },
   {
@@ -59,11 +59,11 @@ const publications: Publication[] = [
     venue: 'SPE Annual Technical Conference',
   },
   {
-    title: 'Selection of a Chemical EOR Strategy in Heavy Oil Reservoirs',
-    venue: 'SPE Canada Heavy Oil Conference',
+    title: 'Selection of a Chemical EOR Strategy in a Heavy Oil Reservoir Using Laboratory Data and Reservoir Simulation',
+    venue: 'SPE Canada Heavy Oil Technical Conference',
   },
   {
-    title: 'Innovative ASP Formulation Strategies for Multi Field Applications',
+    title: 'Innovative ASP Formulation Strategies for Multi Field Applications and Enhanced Economic Feasibility',
     venue: 'SPE Improved Oil Recovery Symposium',
   },
 ];
@@ -105,14 +105,14 @@ const TechnicalRecordSection = () => {
         {/* Technical Research & Publications */}
         <div className="reveal mt-20" style={{ transitionDelay: '0.3s' }}>
           <h3 className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold mb-8">
-            Technical Research & Publications
+            Technical Research and Publications
           </h3>
           <div className="prose-editorial space-y-5 max-w-3xl">
             <p>
               Dan Glushko has contributed to multiple Society of Petroleum Engineers (SPE) technical publications and international research programs focused on chemical enhanced oil recovery, polymer flooding, and ASP system design.
             </p>
             <p>
-              His work has included laboratory design and validation of ASP, surfactant‑polymer, and polymer flooding systems for complex carbonate and sandstone reservoirs.
+              His work has included laboratory design and validation of ASP, surfactant polymer, and polymer flooding systems for complex carbonate and sandstone reservoirs.
             </p>
             <p>
               Over the course of his engineering career he has executed more than 150 laboratory coreflood experiments used to validate chemical recovery models, optimize surfactant formulations, and support field pilot deployments.
@@ -126,7 +126,7 @@ const TechnicalRecordSection = () => {
         {/* Selected Technical Publications */}
         <div className="reveal mt-16" style={{ transitionDelay: '0.45s' }}>
           <h3 className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold mb-8">
-            Selected Technical Publications
+            Selected SPE Technical Publications
           </h3>
           <div className="space-y-px">
             {publications.map((pub, i) => (
