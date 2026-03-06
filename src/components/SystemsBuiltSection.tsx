@@ -3,19 +3,19 @@ import useScrollReveal from '../hooks/useScrollReveal';
 const systems = [
   {
     title: 'Chemical EOR Recovery Systems',
-    description: 'Laboratory and field design of polymer, surfactant, and ASP flooding systems.',
+    description: 'Design and laboratory validation of polymer, surfactant, and ASP flooding systems for complex oil reservoirs.',
   },
   {
     title: 'Autonomous AI Workflow Systems',
-    description: 'Automation architecture using AI agents and software workflows.',
+    description: 'Architecture of automation systems using AI agents, APIs, and workflow orchestration.',
   },
   {
     title: 'Direct to Consumer Brand Operations',
-    description: 'Operational and supply chain systems built through Okana.',
+    description: 'Operational, product, and supply chain systems developed through Okana.',
   },
   {
     title: 'Blockchain and Digital Financial Systems',
-    description: 'Early exploration and use of decentralized systems beginning in 2018.',
+    description: 'Exploration and application of decentralized financial systems beginning in 2018.',
   },
 ];
 
@@ -29,7 +29,7 @@ const SystemsBuiltSection = () => {
           <span className="chapter-label">Systems Built</span>
           <div className="divider-gold mt-4 mb-6" />
           <h2 className="heading-serif text-4xl md:text-5xl lg:text-6xl text-cream">
-            Execution Record
+            Systems Built
           </h2>
         </div>
 

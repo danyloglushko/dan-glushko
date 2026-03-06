@@ -125,9 +125,12 @@ const TechnicalRecordSection = () => {
 
         {/* Selected Technical Publications */}
         <div className="reveal mt-16" style={{ transitionDelay: '0.45s' }}>
-          <h3 className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold mb-8">
+          <h3 className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold mb-4">
             Selected SPE Technical Publications
           </h3>
+          <p className="font-sans text-xs text-muted-foreground mb-8 max-w-2xl">
+            Selected technical publications presented through the Society of Petroleum Engineers (SPE).
+          </p>
           <div className="space-y-px">
             {publications.map((pub, i) => (
               <div

@@ -20,11 +20,14 @@ const HeroSection = () => {
         </h1>
 
         <p className="prose-editorial mx-auto text-base md:text-lg max-w-xl">
-          Designing systems that endure under real conditions.<br />
-          Built across petroleum engineering, enterprise operations, and intelligent automation.
+          Designing durable systems across engineering, enterprise, and AI.
         </p>
 
-        <div className="mt-16 flex flex-col items-center gap-4">
+        <p className="font-sans text-[11px] tracking-[0.15em] text-muted-foreground mt-4 max-w-md mx-auto">
+          Engineer, systems builder, and founder exploring how durable systems are designed.
+        </p>
+
+        <div className="mt-14 flex flex-col items-center gap-4">
           <div className="w-px h-16 bg-gradient-to-b from-transparent via-gold/30 to-transparent" />
           <span className="chapter-label">Scroll to begin</span>
         </div>

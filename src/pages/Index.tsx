@@ -225,6 +225,23 @@ const Index = () => {
       </section>
 
       <IdeasSection />
+
+      {/* Long Horizon */}
+      <section id="long-horizon" className="section-margin section-padding grain-overlay">
+        <div className="max-w-5xl mx-auto">
+          <span className="chapter-label">Long Horizon</span>
+          <div className="divider-gold mt-4 mb-6" />
+          <h2 className="heading-serif text-4xl md:text-5xl lg:text-6xl text-cream mb-12">
+            Trajectory
+          </h2>
+          <div className="prose-editorial max-w-3xl space-y-6">
+            <p>
+              The work described here is only a beginning. The long term focus is the design and ownership of durable systems — companies, technologies, and infrastructure that continue operating long after the people who created them step away. The goal is simple: build systems that last.
+            </p>
+          </div>
+        </div>
+      </section>
+
       <ContactSection />
     </div>
   );

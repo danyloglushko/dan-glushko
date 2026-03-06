@@ -2,7 +2,7 @@ import useScrollReveal from '../hooks/useScrollReveal';
 
 const principles = [
   'Observe the system before attempting to change it.',
-  'Identify the constraint layers that limit performance.',
+  'Identify the constraints that limit performance.',
   'Engineer feedback loops that stabilize the system.',
   'Reduce unnecessary human intervention wherever possible.',
   'Design systems that remain functional under pressure.',
