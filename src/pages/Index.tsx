@@ -14,6 +14,7 @@ import EngineeringMethodSection from '../components/EngineeringMethodSection';
 import SystemsBuiltSection from '../components/SystemsBuiltSection';
 import IdeasSection from '../components/IdeasSection';
 import ContactSection from '../components/ContactSection';
+import NotesOnSystemsSection from '../components/NotesOnSystemsSection';
 
 const Index = () => {
   return (
@@ -225,6 +226,9 @@ const Index = () => {
       </section>
 
       <IdeasSection />
+
+      {/* Notes on Systems */}
+      <NotesOnSystemsSection />
 
       {/* Long Horizon */}
       <section id="long-horizon" className="section-margin section-padding grain-overlay">
