@@ -403,6 +403,7 @@ const HasslerCoreholderSVG = () => {
           Complete Coreflooding Apparatus — Pump, Accumulators, Hassler Coreholder, BPR &amp; Fraction Collection
         </text>
       </g>
+      </g>{/* end apparatus centering group */}
 
       {/* ============================================ */}
       {/* === ENGINEERING RECORD (bottom) === */}
