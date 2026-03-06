@@ -14,6 +14,7 @@ import EngineeringMethodSection from '../components/EngineeringMethodSection';
 import SystemsBuiltSection from '../components/SystemsBuiltSection';
 import IdeasSection from '../components/IdeasSection';
 import ContactSection from '../components/ContactSection';
+import NotesOnSystemsSection from '../components/NotesOnSystemsSection';
 
 const Index = () => {
   return (
@@ -226,6 +227,9 @@ const Index = () => {
 
       <IdeasSection />
 
+      {/* Notes on Systems */}
+      <NotesOnSystemsSection />
+
       {/* Long Horizon */}
       <section id="long-horizon" className="section-margin section-padding grain-overlay">
         <div className="max-w-5xl mx-auto">
@@ -236,7 +240,7 @@ const Index = () => {
           </h2>
           <div className="prose-editorial max-w-3xl space-y-6">
             <p>
-              The work described here is only a beginning. The long term focus is the design and ownership of durable systems — companies, technologies, and infrastructure that continue operating long after the people who created them step away. The goal is simple: build systems that last.
+              The work described here is only a beginning. The long term focus is the design and ownership of durable systems — companies, technologies, and infrastructure that continue operating long after their creators step away. The goal is simple: build systems that last.
             </p>
           </div>
         </div>
