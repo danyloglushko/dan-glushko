@@ -29,7 +29,7 @@ const SystemsBuiltSection = () => {
           <span className="chapter-label">Systems Built</span>
           <div className="divider-gold mt-4 mb-6" />
           <h2 className="heading-serif text-4xl md:text-5xl lg:text-6xl text-cream">
-            Execution Record
+            Systems Built
           </h2>
         </div>
 
