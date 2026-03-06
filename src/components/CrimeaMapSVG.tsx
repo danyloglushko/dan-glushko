@@ -315,6 +315,23 @@ const CrimeaMapSVG = () => {
           className={isVisible ? 'opacity-100' : 'opacity-0'}
           style={{ transition: 'opacity 1s ease 3s' }}
         />
+        {/* Animated traveling point along flight path */}
+        <circle r={2.5} fill="hsl(33 67% 67% / 0.9)">
+          <animateMotion
+            dur="4s"
+            repeatCount="indefinite"
+            begin="3s"
+            path={flightPathD}
+          />
+        </circle>
+        <circle r={6} fill="none" stroke="hsl(33 67% 67% / 0.2)" strokeWidth={0.6}>
+          <animateMotion
+            dur="4s"
+            repeatCount="indefinite"
+            begin="3s"
+            path={flightPathD}
+          />
+        </circle>
         {/* Distance label on the arc */}
         <text x={arcMidX + 10} y={arcMidY - 6} fill="hsl(39 100% 94% / 0.15)"
           fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.1em"
@@ -326,11 +343,11 @@ const CrimeaMapSVG = () => {
 
       {/* ═══ TEXAS SECTION ═══ */}
 
-      {/* Texas outline */}
+      {/* Texas outline with matching stroke */}
       <path
         d={texasPathD}
-        stroke="hsl(33 67% 67% / 0.35)"
-        strokeWidth={1.2}
+        stroke="hsl(33 67% 67% / 0.5)"
+        strokeWidth={1.4}
         fill="none"
         strokeLinejoin="round"
         strokeLinecap="round"
@@ -339,22 +356,34 @@ const CrimeaMapSVG = () => {
         style={{ transition: 'stroke-dashoffset 2s cubic-bezier(.22,.61,.36,1) 2.5s' }}
       />
 
-      {/* Temple, TX marker */}
+      {/* Subtle Texas interior fill */}
+      <path
+        d={texasPathD}
+        stroke="none"
+        fill="hsl(33 67% 67% / 0.02)"
+        className={isVisible ? 'opacity-100' : 'opacity-0'}
+        style={{ transition: 'opacity 1s ease 3.5s' }}
+      />
+
+      {/* Temple, TX marker with matching rings */}
       <g className={isVisible ? 'opacity-100' : 'opacity-0'}
         style={{ transition: 'opacity 0.8s ease 3.5s' }}>
-        <circle cx={templeX} cy={templeY} r={8}
+        <circle cx={templeX} cy={templeY} r={10}
           stroke="hsl(33 67% 67% / 0.2)" strokeWidth={0.6} fill="none"
           className="animate-pulse-subtle" />
+        <circle cx={templeX} cy={templeY} r={18}
+          stroke="hsl(33 67% 67% / 0.08)" strokeWidth={0.4} fill="none"
+          className="animate-pulse-subtle" style={{ animationDelay: '0.5s' }} />
         <circle cx={templeX} cy={templeY} r={3}
           fill="hsl(33 67% 67% / 0.8)" className="svg-node-glow" />
 
         <text x={templeX + 14} y={templeY + 3} fill="hsl(33 67% 67% / 0.7)"
-          fontFamily="var(--font-serif)" fontSize={7.5} fontWeight={400}
+          fontFamily="var(--font-serif)" fontSize={8} fontWeight={400}
           letterSpacing="0.14em" fontStyle="italic">
           TEMPLE
         </text>
-        <text x={templeX + 14} y={templeY + 14} fill="hsl(39 100% 94% / 0.2)"
-          fontFamily="var(--font-sans)" fontSize={5.5} letterSpacing="0.06em">
+        <text x={templeX + 14} y={templeY + 15} fill="hsl(39 100% 94% / 0.2)"
+          fontFamily="var(--font-sans)" fontSize={6} letterSpacing="0.06em">
           31.0982°N · 97.3428°W
         </text>
       </g>
