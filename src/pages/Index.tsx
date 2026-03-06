@@ -6,7 +6,7 @@ import CrimeaMapSVG from '../components/CrimeaMapSVG';
 import HasslerCoreholderSVG from '../components/HasslerCoreholderSVG';
 import TransferModelSVG from '../components/TransferModelSVG';
 import FeedbackLoopSVG from '../components/FeedbackLoopSVG';
-import DurabilitySVG from '../components/DurabilitySVG';
+import FlowerOfLifeSVG from '../components/FlowerOfLifeSVG';
 import VentureCard from '../components/VentureCard';
 import TechnicalRecordSection from '../components/TechnicalRecordSection';
 import OkanaCaseStudy from '../components/OkanaCaseStudy';
@@ -179,7 +179,7 @@ const Index = () => {
 
         {/* Complexity to Durability diagram */}
         <div className="mt-16">
-          <DurabilitySVG />
+          <FlowerOfLifeSVG />
         </div>
       </ChapterSection>
 
