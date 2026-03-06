@@ -22,8 +22,8 @@ const ideas = [
     body: 'The systems, businesses, and people that endure were not lucky. They were engineered to absorb variance, not outrun it. I build for that.',
   },
   {
-    title: 'Perception is load-bearing',
-    body: 'How a system is understood shapes outcomes more than how it functions. The invisible forces — framing, context, positioning — are the real levers. I learned that selling chemical programs to skeptical operators.',
+    title: 'Perception is load bearing',
+    body: 'How a system is understood shapes outcomes more than how it functions. The invisible forces, framing, context, positioning, are the real levers. I learned that selling chemical programs to skeptical operators.',
   },
 ];
 

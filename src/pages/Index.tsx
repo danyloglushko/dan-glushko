@@ -10,6 +10,8 @@ import DurabilitySVG from '../components/DurabilitySVG';
 import VentureCard from '../components/VentureCard';
 import TechnicalRecordSection from '../components/TechnicalRecordSection';
 import OkanaCaseStudy from '../components/OkanaCaseStudy';
+import EngineeringMethodSection from '../components/EngineeringMethodSection';
+import SystemsBuiltSection from '../components/SystemsBuiltSection';
 import IdeasSection from '../components/IdeasSection';
 import ContactSection from '../components/ContactSection';
 
@@ -76,7 +78,7 @@ const Index = () => {
               <strong>I learned to observe it.</strong>
             </p>
             <p>
-              And once you have lived inside two systems, you begin to notice how all systems behave.
+              Growing up between two very different systems made me start noticing the invisible structures that shape how everything works.
             </p>
           </div>
           <div className="flex flex-col items-center gap-8 lg:sticky lg:top-32">
@@ -179,6 +181,12 @@ const Index = () => {
           <DurabilitySVG />
         </div>
       </ChapterSection>
+
+      {/* Engineering Method */}
+      <EngineeringMethodSection />
+
+      {/* Systems Built */}
+      <SystemsBuiltSection />
 
       {/* Technical Record */}
       <TechnicalRecordSection />
