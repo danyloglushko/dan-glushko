@@ -22,7 +22,7 @@ const VentureCard = ({ name, description, role, url }: VentureCardProps) => {
         <h3 className="heading-serif text-3xl md:text-4xl mt-3 mb-4 text-cream group-hover:text-gold transition-colors duration-300">
           {name}
         </h3>
-        <p className="prose-editorial text-sm">{description}</p>
+        <p className="prose-editorial text-sm flex-grow">{description}</p>
         {url && (
           <span className="inline-block mt-6 text-gold font-sans text-xs tracking-[0.15em] uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300">
             Visit →
