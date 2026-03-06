@@ -23,8 +23,8 @@ const HeroSection = () => {
           Designing durable systems across engineering, enterprise, and AI.
         </p>
 
-        <p className="font-sans text-[11px] tracking-[0.15em] text-muted-foreground mt-4 max-w-md mx-auto">
-          Engineer, systems builder, and founder exploring how durable systems are designed.
+        <p className="font-sans text-[11px] tracking-[0.2em] uppercase text-muted-foreground mt-4 max-w-md mx-auto">
+          Engineer. Systems builder. Founder.
         </p>
 
         <div className="mt-14 flex flex-col items-center gap-4">
