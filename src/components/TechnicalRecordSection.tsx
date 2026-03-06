@@ -51,11 +51,19 @@ const publications: Publication[] = [
     venue: 'SPE Improved Oil Recovery Conference',
   },
   {
-    title: 'Low Salinity Polymer Flooding in a High Temperature Low Permeability Carbonate Reservoir in West Kuwait',
+    title: 'Low Salinity Polymer Flooding in High Temperature Carbonate Reservoirs, West Kuwait',
     venue: 'SPE Kuwait Oil & Gas Show',
   },
   {
-    title: 'Innovative ASP Formulation Strategies for Multi Field Applications and Enhanced Economic Feasibility',
+    title: 'Improving ASP Performance in Carbonate Reservoir Rocks Using Hybrid Alkali',
+    venue: 'SPE Annual Technical Conference',
+  },
+  {
+    title: 'Selection of a Chemical EOR Strategy in Heavy Oil Reservoirs',
+    venue: 'SPE Canada Heavy Oil Conference',
+  },
+  {
+    title: 'Innovative ASP Formulation Strategies for Multi Field Applications',
     venue: 'SPE Improved Oil Recovery Symposium',
   },
 ];
