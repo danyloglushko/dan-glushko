@@ -89,10 +89,10 @@ const Index = () => {
         <div className="space-y-12">
           <div className="prose-editorial space-y-6 max-w-3xl">
             <p>
-              Petroleum engineering at the University of Texas at Austin taught me one thing above all: how to <strong>make decisions about systems you can't directly observe</strong>. Every reservoir is a black box. The discipline is building models precise enough to act on — without ever opening it.
+              Petroleum engineering at the University of Texas at Austin taught me one thing above all: how to <strong>make decisions about systems you can not directly observe</strong>. Every reservoir is a black box. The discipline is building models precise enough to act on without ever opening it.
             </p>
             <p>
-              I designed and executed over 50 tertiary chemical EOR systems — ASP, surfactant-polymer, standalone polymer — across laboratory validation and live pilot environments. Documented and published chemical recovery designs for reproducibility and knowledge transfer through five SPE papers.
+              I designed and executed over 50 tertiary chemical EOR systems, ASP, surfactant polymer, standalone polymer, across laboratory validation and live pilot environments. Documented and published chemical recovery designs for reproducibility and knowledge transfer through five SPE papers.
             </p>
             <p>
               Deployed to Kuwait for quality control during a live pilot-stage chemical recovery program. In oilfield chemical systems, the cost of a miscalculation is measured in <strong>millions of dollars and environmental consequence</strong>. That's the operating standard I trained under.
@@ -109,13 +109,13 @@ const Index = () => {
       <ChapterSection id="failure" number="III" title="Failure as Calibration">
         <div className="prose-editorial space-y-6 max-w-3xl">
           <p>
-            Every venture that didn't scale gave me something no successful one could — <strong>a precise map of where the model breaks</strong>.
-          </p>
-          <p>
-            When I acquired Okana, the product was sound but the infrastructure had degraded. The flaw wasn't execution — it was <strong>load distribution</strong>. The system was designed for conditions that didn't exist. I rebuilt it for the conditions that did.
-          </p>
-          <p>
-            Without failure data, you're optimizing against a model you've never validated. I've validated mine — repeatedly, at cost, across different substrates.
+             Every venture that did not scale gave me something no successful one could: <strong>a precise map of where the model breaks</strong>.
+           </p>
+           <p>
+             When I acquired Okana, the product was sound but the infrastructure had degraded. The flaw was not execution. It was <strong>load distribution</strong>. The system was designed for conditions that did not exist. I rebuilt it for the conditions that did.
+           </p>
+           <p>
+             Without failure data, you are optimizing against a model you have never validated. I have validated mine, repeatedly, at cost, across different substrates.
           </p>
           <p>
             That process shifted how I build: from designing systems that assume stability to engineering systems that <strong>absorb variance</strong>.
@@ -135,16 +135,16 @@ const Index = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
           <div className="prose-editorial space-y-6">
             <p>
-              I've engineered AI automation workflows and blockchain infrastructure since 2018. These aren't separate interests — <strong>they're the same discipline applied across different substrates</strong>.
+              I have engineered AI automation workflows and blockchain infrastructure since 2018. These are not separate interests. <strong>They are the same discipline applied across different substrates</strong>.
             </p>
             <p>
-              The common thread: systems that operate with minimal human intervention and maximum structural integrity. Whether I'm designing a chemical injection sequence, an autonomous revenue workflow, or a decentralized protocol — the architecture follows the same principles.
+              The common thread: systems that operate with minimal human intervention and maximum structural integrity. Whether I am designing a chemical injection sequence, an autonomous revenue workflow, or a decentralized protocol, the architecture follows the same principles.
             </p>
             <p>
-              Architecture means making decisions now that constrain decisions later — so that <strong>the constraints become advantages</strong>.
+              Architecture means making decisions now that constrain decisions later, so that <strong>the constraints become advantages</strong>.
             </p>
             <p>
-              The question I optimize for isn't "how do we automate this?" It's <strong>"what structure makes automation inevitable?"</strong>
+              The question I optimize for is not "how do we automate this?" It is <strong>"what structure makes automation inevitable?"</strong>
             </p>
           </div>
           <div>
@@ -160,13 +160,13 @@ const Index = () => {
       <ChapterSection id="durability" number="V" title="Durability">
         <div className="prose-editorial space-y-6 max-w-3xl">
           <p>
-            This chapter isn't about growth. It's about <strong>what remains when you stop adding</strong>.
+            This chapter is not about growth. It is about <strong>what remains when you stop adding</strong>.
           </p>
           <p>
-            My mother — the person who engineered stability out of nothing — is the most important structural element in everything I've built. The most durable systems are built on <strong>foundations that predate the architect</strong>.
+            My mother, the person who engineered stability out of nothing, is the most important structural element in everything I have built. The most durable systems are built on <strong>foundations that predate the architect</strong>.
           </p>
           <p>
-            Family is the load-bearing wall. Legacy isn't built by moving fast. It's built by <strong>designing systems that compound after you stop touching them</strong>.
+            Family is the load bearing wall. Legacy is not built by moving fast. It is built by <strong>designing systems that compound after you stop touching them</strong>.
           </p>
           <p>
             Restraint is the final optimization. Knowing what not to build. What not to disrupt. <strong>The last move is stillness.</strong>
@@ -216,13 +216,13 @@ const Index = () => {
             <VentureCard
               name="Livadea Systems"
               role="AI Systems Firm"
-              description="I design autonomous systems — signal processing, optimization loops, and intelligent automation — for enterprises that need to scale operations without scaling headcount."
+              description="I design autonomous systems, signal processing, optimization loops, and intelligent automation, for enterprises that need to scale operations without scaling headcount."
               url="https://systems.livadea.com"
             />
           </div>
 
           <p className="mt-10 font-sans text-xs text-muted-foreground tracking-wide text-center max-w-lg mx-auto">
-            Every entity is designed for operational durability — not short-term extraction.
+            Every entity is designed for operational durability, not short-term extraction.
           </p>
         </div>
       </section>

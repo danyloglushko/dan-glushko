@@ -3,23 +3,23 @@ import useScrollReveal from '../hooks/useScrollReveal';
 const ideas = [
   {
     title: 'Entropy is the operating default',
-    body: 'Every system I\'ve touched degrades without deliberate maintenance. The question was never whether things fall apart — it was whether I could engineer the repair cycle faster than the decay.',
+    body: 'Every system I have touched degrades without deliberate maintenance. The question was never whether things fall apart. It was whether I could engineer the repair cycle faster than the decay.',
   },
   {
     title: 'Architecture outperforms effort',
-    body: 'I\'ve watched brilliant operators burn out running broken systems. A well-designed structure multiplies output. Raw effort only adds to it. I choose structure every time.',
+    body: 'I have watched brilliant operators burn out running broken systems. A well designed structure multiplies output. Raw effort only adds to it. I choose structure every time.',
   },
   {
     title: 'The highest returns hide at the margins',
-    body: 'The biggest gains I\'ve captured weren\'t in the obvious places. They were in the second-order effects nobody measured, the friction nobody quantified, the incentive nobody questioned.',
+    body: 'The biggest gains I have captured were not in the obvious places. They were in the second order effects nobody measured, the friction nobody quantified, the incentive nobody questioned.',
   },
   {
     title: 'Incentives drive outcomes more reliably than intention',
-    body: 'I\'ve designed incentive structures that self-corrected without management — and seen well-intentioned ones collapse under their own misalignment. Get the incentives right and the system runs itself.',
+    body: 'I have designed incentive structures that self corrected without management, and seen well intentioned ones collapse under their own misalignment. Get the incentives right and the system runs itself.',
   },
   {
     title: 'Durability is a strategy, not a byproduct',
-    body: 'The systems, businesses, and people that endure weren\'t lucky — they were engineered to absorb variance, not outrun it. I build for that.',
+    body: 'The systems, businesses, and people that endure were not lucky. They were engineered to absorb variance, not outrun it. I build for that.',
   },
   {
     title: 'Perception is load-bearing',
