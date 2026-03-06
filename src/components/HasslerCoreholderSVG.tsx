@@ -74,6 +74,9 @@ const HasslerCoreholderSVG = () => {
           stroke="hsl(39 100% 94% / 0.02)" strokeWidth={0.5} />
       ))}
 
+      {/* Apparatus group — shifted right for visual centering */}
+      <g transform="translate(45, 0)">
+
       {/* ============================================ */}
       {/* === ISCO SYRINGE PUMP (far left) === */}
       {/* ============================================ */}
