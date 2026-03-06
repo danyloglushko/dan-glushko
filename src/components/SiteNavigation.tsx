@@ -7,8 +7,12 @@ const sections = [
   { id: 'failure', label: 'Calibration' },
   { id: 'architecture', label: 'Architecture' },
   { id: 'durability', label: 'Durability' },
+  { id: 'engineering-method', label: 'Method' },
+  { id: 'systems-built', label: 'Built' },
   { id: 'record', label: 'Record' },
   { id: 'ventures', label: 'Ventures' },
+  { id: 'notes', label: 'Notes' },
+  { id: 'long-horizon', label: 'Horizon' },
 ];
 
 const SiteNavigation = () => {
