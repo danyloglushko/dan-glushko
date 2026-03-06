@@ -20,7 +20,7 @@ const HeroSection = () => {
         </h1>
 
         <p className="prose-editorial mx-auto text-base md:text-lg max-w-xl">
-          Designing systems so they don't just perform — they persist.
+          Designing systems so they do not just perform, they persist.
           Engineered across petroleum, enterprise, and AI.
         </p>
 

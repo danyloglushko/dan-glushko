@@ -18,7 +18,7 @@ const categories: RecordCategory[] = [
   {
     label: 'Engineering Record',
     items: [
-      { text: '12+ Years — Chemical EOR Engineering' },
+      { text: '12+ Years Chemical EOR Engineering' },
       { text: '50+ Chemical EOR System Designs' },
       { text: '150+ Coreflood Experiments Executed' },
       { text: 'SPE Technical Publications' },
@@ -29,7 +29,7 @@ const categories: RecordCategory[] = [
     label: 'Systems & Architecture',
     items: [
       { text: 'AI Workflow Engineering & Deployment' },
-      { text: 'LLM Agent Systems — Designed & Operated' },
+      { text: 'LLM Agent Systems, Designed & Operated' },
       { text: 'Revenue Automation Infrastructure' },
       { text: 'Blockchain Architecture Since 2018' },
     ],
@@ -37,10 +37,10 @@ const categories: RecordCategory[] = [
   {
     label: 'Entrepreneurship',
     items: [
-      { text: 'Founded & Operated — Marketplace Ecommerce' },
-      { text: 'Acquired & Rebuilt — Okana (DTC Brand)' },
-      { text: 'Migrated Infrastructure & Redesigned Front-End' },
-      { text: 'Integrated Operational Automation End-to-End' },
+      { text: 'Founded & Operated Marketplace Ecommerce' },
+      { text: 'Acquired & Rebuilt Okana (DTC Brand)' },
+      { text: 'Migrated Infrastructure & Redesigned Front End' },
+      { text: 'Integrated Operational Automation End to End' },
     ],
   },
 ];
@@ -110,7 +110,7 @@ const TechnicalRecordSection = () => {
               Over the course of his engineering career he has executed more than 150 laboratory coreflood experiments used to validate chemical recovery models, optimize surfactant formulations, and support field pilot deployments.
             </p>
             <p>
-              These studies have contributed to chemical EOR programs implemented across multiple international oil operators — including projects in Kuwait and the Middle East.
+              These studies have contributed to chemical EOR programs implemented across multiple international oil operators, including projects in Kuwait and the Middle East.
             </p>
           </div>
         </div>
