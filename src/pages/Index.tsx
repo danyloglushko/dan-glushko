@@ -240,7 +240,7 @@ const Index = () => {
           </h2>
           <div className="prose-editorial max-w-3xl space-y-6">
             <p>
-              The work described here is only a beginning. The long term focus is the design and ownership of durable systems — companies, technologies, and infrastructure that continue operating long after their creators step away. The goal is simple: build systems that last.
+              The work described here is only a beginning. The long term focus is the design and ownership of durable systems. Companies, technologies, and infrastructure that continue operating long after their creators step away. The goal is simple: build systems that last.
             </p>
           </div>
         </div>
