@@ -11,12 +11,12 @@ const VentureCard = ({ name, description, role, url }: VentureCardProps) => {
   const ref = useScrollReveal();
 
   return (
-    <div ref={ref} className="reveal">
+    <div ref={ref} className="reveal h-full">
       <a
         href={url}
         target="_blank"
         rel="noopener noreferrer"
-        className="block p-8 md:p-10 border border-border rounded bg-card/30 hover:bg-card/60 transition-all duration-500 btn-lift group"
+        className="flex flex-col h-full p-8 md:p-10 border border-border rounded bg-card/30 hover:bg-card/60 transition-all duration-500 btn-lift group"
       >
         <span className="chapter-label">{role}</span>
         <h3 className="heading-serif text-3xl md:text-4xl mt-3 mb-4 text-cream group-hover:text-gold transition-colors duration-300">
