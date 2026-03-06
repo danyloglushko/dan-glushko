@@ -39,9 +39,14 @@ const ContactSection = () => {
               Okana
             </a>
           </div>
-          <span className="font-sans text-[10px] text-muted-nav tracking-wider">
-            © {new Date().getFullYear()}
-          </span>
+          <div className="flex flex-col items-center md:items-end gap-1">
+            <span className="font-sans text-[10px] text-muted-foreground tracking-[0.15em]">
+              Austin, Texas
+            </span>
+            <span className="font-sans text-[10px] text-muted-nav tracking-wider">
+              Engineer and systems builder · © {new Date().getFullYear()}
+            </span>
+          </div>
         </div>
       </div>
     </section>
