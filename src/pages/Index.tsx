@@ -195,11 +195,11 @@ const Index = () => {
             <h2 className="heading-serif text-4xl md:text-5xl text-cream">Operating Architecture</h2>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-stretch">
             <VentureCard
               name="Livadea"
               role="Holding Company"
-              description="I acquire and operate durable small businesses with long-term stewardship. Engineered to compound across cycles, not chase them."
+              description="I acquire and operate durable small businesses with long term stewardship. Engineered to compound across cycles, not chase them."
               url="https://livadea.com"
             />
             <VentureCard
@@ -211,7 +211,7 @@ const Index = () => {
           </div>
 
           <p className="mt-10 font-sans text-xs text-muted-foreground tracking-wide text-center max-w-lg mx-auto">
-            Every entity is designed for operational durability, not short-term extraction.
+            Every entity is designed for operational durability, not short term extraction.
           </p>
         </div>
       </section>
