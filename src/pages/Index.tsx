@@ -95,7 +95,7 @@ const Index = () => {
               I designed and executed over 50 tertiary chemical EOR systems, ASP, surfactant polymer, standalone polymer, across laboratory validation and live pilot environments. Documented and published chemical recovery designs for reproducibility and knowledge transfer through five SPE papers.
             </p>
             <p>
-              Deployed to Kuwait for quality control during a live pilot-stage chemical recovery program. In oilfield chemical systems, the cost of a miscalculation is measured in <strong>millions of dollars and environmental consequence</strong>. That's the operating standard I trained under.
+              Deployed to Kuwait for quality control during a live pilot stage chemical recovery program. In oilfield chemical systems, the cost of a miscalculation is measured in <strong>millions of dollars and environmental consequence</strong>. That is the operating standard I trained under.
             </p>
           </div>
 

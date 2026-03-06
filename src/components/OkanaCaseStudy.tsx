@@ -3,10 +3,10 @@ import useScrollReveal from '../hooks/useScrollReveal';
 const capabilities = [
   'Brand acquisition & operational due diligence',
   'Infrastructure migration to modern stack',
-  'Front-end architecture redesigned for conversion',
-  'Subscription engine rebuilt end-to-end',
-  'API integrations & third-party orchestration',
-  'AI-enabled customer workflows deployed',
+  'Front end architecture redesigned for conversion',
+  'Subscription engine rebuilt end to end',
+  'API integrations & third party orchestration',
+  'AI enabled customer workflows deployed',
   'Conversion optimization validated through systems analysis',
 ];
 
