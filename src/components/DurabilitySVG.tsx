@@ -1,278 +1,345 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
-interface WorkflowNode {
+interface Node {
   x: number;
   y: number;
-  w: number;
-  h: number;
   label: string;
-  type?: 'trigger' | 'action' | 'condition' | 'output';
+  durable: boolean;
 }
 
+interface Edge {
+  from: number;
+  to: number;
+  strength: number; // 0-1, higher = more durable
+}
+
+const NODES: Node[] = [
+  // Durable core (4 nodes)
+  { x: 250, y: 110, label: 'Core', durable: true },
+  { x: 410, y: 110, label: 'Engine', durable: true },
+  { x: 250, y: 230, label: 'Store', durable: true },
+  { x: 410, y: 230, label: 'Output', durable: true },
+  // Fragile periphery
+  { x: 80, y: 60, label: 'Sync', durable: false },
+  { x: 160, y: 40, label: 'Proxy', durable: false },
+  { x: 330, y: 30, label: 'Cache', durable: false },
+  { x: 500, y: 50, label: 'Mirror', durable: false },
+  { x: 580, y: 100, label: 'Bridge', durable: false },
+  { x: 580, y: 200, label: 'Shim', durable: false },
+  { x: 500, y: 280, label: 'Adapter', durable: false },
+  { x: 330, y: 300, label: 'Mapper', durable: false },
+  { x: 160, y: 290, label: 'Wrapper', durable: false },
+  { x: 80, y: 200, label: 'Hook', durable: false },
+  { x: 80, y: 130, label: 'Patch', durable: false },
+  { x: 160, y: 160, label: 'Glue', durable: false },
+  { x: 500, y: 160, label: 'Pipe', durable: false },
+  { x: 330, y: 170, label: 'Relay', durable: false },
+  { x: 420, y: 300, label: 'Buffer', durable: false },
+  { x: 140, y: 110, label: 'Layer', durable: false },
+];
+
+const EDGES: Edge[] = [
+  // Durable connections (core skeleton)
+  { from: 0, to: 1, strength: 1 },
+  { from: 1, to: 3, strength: 1 },
+  { from: 0, to: 2, strength: 1 },
+  { from: 2, to: 3, strength: 1 },
+  { from: 0, to: 3, strength: 0.95 },
+  { from: 1, to: 2, strength: 0.95 },
+  // Medium connections
+  { from: 0, to: 17, strength: 0.5 },
+  { from: 1, to: 17, strength: 0.5 },
+  { from: 2, to: 17, strength: 0.45 },
+  { from: 3, to: 17, strength: 0.45 },
+  { from: 0, to: 15, strength: 0.4 },
+  { from: 1, to: 16, strength: 0.4 },
+  // Fragile connections
+  { from: 4, to: 5, strength: 0.2 },
+  { from: 5, to: 0, strength: 0.25 },
+  { from: 5, to: 6, strength: 0.15 },
+  { from: 6, to: 1, strength: 0.2 },
+  { from: 6, to: 7, strength: 0.15 },
+  { from: 7, to: 8, strength: 0.2 },
+  { from: 8, to: 1, strength: 0.25 },
+  { from: 8, to: 9, strength: 0.2 },
+  { from: 9, to: 16, strength: 0.15 },
+  { from: 9, to: 10, strength: 0.2 },
+  { from: 10, to: 3, strength: 0.25 },
+  { from: 10, to: 18, strength: 0.15 },
+  { from: 11, to: 2, strength: 0.2 },
+  { from: 11, to: 18, strength: 0.15 },
+  { from: 12, to: 2, strength: 0.25 },
+  { from: 12, to: 11, strength: 0.2 },
+  { from: 13, to: 14, strength: 0.2 },
+  { from: 14, to: 0, strength: 0.25 },
+  { from: 13, to: 15, strength: 0.15 },
+  { from: 15, to: 17, strength: 0.15 },
+  { from: 4, to: 14, strength: 0.15 },
+  { from: 4, to: 19, strength: 0.2 },
+  { from: 19, to: 0, strength: 0.3 },
+  { from: 19, to: 5, strength: 0.15 },
+  { from: 16, to: 3, strength: 0.3 },
+  { from: 7, to: 16, strength: 0.15 },
+  { from: 13, to: 12, strength: 0.2 },
+  { from: 10, to: 11, strength: 0.15 },
+];
+
+const PRESSURE_RADIUS = 120;
+const NODE_W = 52;
+const NODE_H = 22;
+
 const DurabilitySVG = () => {
+  const svgRef = useRef<SVGSVGElement>(null);
   const [isVisible, setIsVisible] = useState(false);
-  const [phase, setPhase] = useState<'complex' | 'reducing' | 'simple'>('complex');
-  const ref = useRef<SVGSVGElement>(null);
-  const timerRef = useRef<ReturnType<typeof setTimeout>>();
+  const [mouse, setMouse] = useState<{ x: number; y: number } | null>(null);
+  const [brokenEdges, setBrokenEdges] = useState<Set<number>>(new Set());
+  const [hasInteracted, setHasInteracted] = useState(false);
+  const resetTimerRef = useRef<ReturnType<typeof setTimeout>>();
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setIsVisible(true); },
       { threshold: 0.15 }
     );
-    if (ref.current) observer.observe(ref.current);
+    if (svgRef.current) observer.observe(svgRef.current);
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    if (!isVisible) return;
-    const cycle = () => {
-      setPhase('complex');
-      timerRef.current = setTimeout(() => {
-        setPhase('reducing');
-        timerRef.current = setTimeout(() => {
-          setPhase('simple');
-          timerRef.current = setTimeout(cycle, 4000);
-        }, 1500);
-      }, 3000);
-    };
-    cycle();
-    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
-  }, [isVisible]);
+  const handleMouseMove = useCallback((e: React.MouseEvent<SVGSVGElement>) => {
+    const svg = svgRef.current;
+    if (!svg) return;
+    const rect = svg.getBoundingClientRect();
+    const scaleX = 660 / rect.width;
+    const scaleY = 340 / rect.height;
+    const x = (e.clientX - rect.left) * scaleX;
+    const y = (e.clientY - rect.top) * scaleY;
+    setMouse({ x, y });
 
-  // Complex n8n-style workflow nodes
-  const complexNodes: WorkflowNode[] = [
-    // Row 1 - triggers
-    { x: 30, y: 30, w: 70, h: 28, label: 'Webhook', type: 'trigger' },
-    { x: 30, y: 72, w: 70, h: 28, label: 'Schedule', type: 'trigger' },
-    { x: 30, y: 114, w: 70, h: 28, label: 'Event', type: 'trigger' },
-    // Row 2 - processing
-    { x: 150, y: 20, w: 65, h: 28, label: 'Validate', type: 'action' },
-    { x: 150, y: 58, w: 65, h: 28, label: 'Parse', type: 'action' },
-    { x: 150, y: 96, w: 65, h: 28, label: 'Transform', type: 'action' },
-    { x: 150, y: 134, w: 65, h: 28, label: 'Enrich', type: 'action' },
-    // Row 3 - conditions
-    { x: 265, y: 30, w: 60, h: 28, label: 'If/Else', type: 'condition' },
-    { x: 265, y: 72, w: 60, h: 28, label: 'Switch', type: 'condition' },
-    { x: 265, y: 114, w: 60, h: 28, label: 'Filter', type: 'condition' },
-    // Row 4 - actions
-    { x: 375, y: 15, w: 65, h: 28, label: 'API Call', type: 'action' },
-    { x: 375, y: 50, w: 65, h: 28, label: 'DB Write', type: 'action' },
-    { x: 375, y: 85, w: 65, h: 28, label: 'Email', type: 'action' },
-    { x: 375, y: 120, w: 65, h: 28, label: 'Slack', type: 'action' },
-    { x: 375, y: 155, w: 65, h: 28, label: 'Log', type: 'action' },
-    // Row 5 - more actions
-    { x: 490, y: 25, w: 65, h: 28, label: 'Retry', type: 'action' },
-    { x: 490, y: 63, w: 65, h: 28, label: 'Merge', type: 'action' },
-    { x: 490, y: 101, w: 65, h: 28, label: 'Cache', type: 'action' },
-    { x: 490, y: 139, w: 65, h: 28, label: 'Queue', type: 'action' },
-    // Row 6 - outputs
-    { x: 605, y: 40, w: 65, h: 28, label: 'Response', type: 'output' },
-    { x: 605, y: 85, w: 65, h: 28, label: 'Store', type: 'output' },
-    { x: 605, y: 130, w: 65, h: 28, label: 'Notify', type: 'output' },
-  ];
+    if (!hasInteracted) setHasInteracted(true);
 
-  // Complex edges (index pairs)
-  const complexEdges: [number, number][] = [
-    [0,3],[0,4],[1,4],[1,5],[2,5],[2,6],
-    [3,7],[3,8],[4,7],[4,8],[5,8],[5,9],[6,9],
-    [7,10],[7,11],[8,11],[8,12],[8,13],[9,13],[9,14],
-    [10,15],[10,16],[11,16],[12,16],[12,17],[13,17],[13,18],[14,18],
-    [15,19],[16,19],[16,20],[17,20],[17,21],[18,21],
-  ];
+    // Break fragile edges near cursor
+    setBrokenEdges(prev => {
+      const next = new Set(prev);
+      EDGES.forEach((edge, i) => {
+        if (next.has(i)) return;
+        if (edge.strength >= 0.9) return; // durable edges never break
+        const midX = (NODES[edge.from].x + NODES[edge.to].x) / 2;
+        const midY = (NODES[edge.from].y + NODES[edge.to].y) / 2;
+        const dist = Math.hypot(x - midX, y - midY);
+        // Weaker edges break from further away
+        const breakDist = PRESSURE_RADIUS * (1 - edge.strength);
+        if (dist < breakDist) {
+          next.add(i);
+        }
+      });
+      return next;
+    });
 
-  // Simple workflow - 4 clean nodes
-  const simpleNodes: WorkflowNode[] = [
-    { x: 155, y: 65, w: 90, h: 34, label: 'Input', type: 'trigger' },
-    { x: 305, y: 65, w: 90, h: 34, label: 'Process', type: 'action' },
-    { x: 455, y: 65, w: 90, h: 34, label: 'Output', type: 'output' },
-  ];
+    // Reset timer
+    if (resetTimerRef.current) clearTimeout(resetTimerRef.current);
+    resetTimerRef.current = setTimeout(() => {
+      setBrokenEdges(new Set());
+      setMouse(null);
+    }, 3000);
+  }, [hasInteracted]);
 
-  const simpleEdges: [number, number][] = [[0,1],[1,2]];
+  const handleMouseLeave = useCallback(() => {
+    if (resetTimerRef.current) clearTimeout(resetTimerRef.current);
+    resetTimerRef.current = setTimeout(() => {
+      setBrokenEdges(new Set());
+      setMouse(null);
+    }, 2500);
+  }, []);
 
-  const isReducingOrSimple = phase === 'reducing' || phase === 'simple';
-  const isSimple = phase === 'simple';
+  // Count surviving connections per node
+  const nodeAlive = NODES.map((_, ni) => {
+    return EDGES.some((edge, ei) =>
+      !brokenEdges.has(ei) && (edge.from === ni || edge.to === ni)
+    );
+  });
 
-  // Color by type
-  const getNodeStroke = (type?: string, simple?: boolean) => {
-    const alpha = simple ? 0.6 : 0.25;
-    switch (type) {
-      case 'trigger': return `hsl(150 40% 55% / ${alpha})`;
-      case 'condition': return `hsl(45 80% 60% / ${alpha})`;
-      case 'output': return `hsl(200 50% 60% / ${alpha})`;
-      default: return `hsl(33 67% 67% / ${alpha})`;
-    }
-  };
+  const totalEdges = EDGES.length;
+  const survivingEdges = totalEdges - brokenEdges.size;
+  const ratio = survivingEdges / totalEdges;
 
-  const getNodeFill = (type?: string, simple?: boolean) => {
-    const alpha = simple ? 0.08 : 0.03;
-    switch (type) {
-      case 'trigger': return `hsl(150 40% 55% / ${alpha})`;
-      case 'condition': return `hsl(45 80% 60% / ${alpha})`;
-      case 'output': return `hsl(200 50% 60% / ${alpha})`;
-      default: return `hsl(33 67% 67% / ${alpha})`;
-    }
-  };
+  const statusLabel = !hasInteracted
+    ? 'MOVE CURSOR TO APPLY PRESSURE'
+    : ratio > 0.7
+    ? 'SYSTEM INTACT'
+    : ratio > 0.4
+    ? 'STRESS DETECTED'
+    : ratio > 0.2
+    ? 'NON-ESSENTIAL SHEDDING'
+    : 'DURABLE CORE REMAINS';
 
-  // Map complex nodes to simple node targets for reducing phase
-  const getReducedPos = (idx: number) => {
-    // Map to 3 groups: triggers→Input, middle→Process, outputs→Output
-    if (idx <= 2) return simpleNodes[0]; // triggers
-    if (idx >= 19) return simpleNodes[2]; // outputs
-    if (idx >= 10) return simpleNodes[1]; // mid-right actions → Process
-    if (idx >= 7) return simpleNodes[1]; // conditions → Process
-    return simpleNodes[0]; // early processing → Input
-  };
-
-  const phaseLabel = phase === 'complex' ? 'ENTROPY' : phase === 'reducing' ? 'REDUCING' : 'DURABILITY';
-  const phaseLabelColor = phase === 'simple'
-    ? 'hsl(33 67% 67% / 0.5)'
-    : 'hsl(39 100% 94% / 0.2)';
-
-  // Connector dot radius
-  const dotR = 2.5;
+  const statusColor = !hasInteracted
+    ? 'hsl(39 100% 94% / 0.15)'
+    : ratio > 0.7
+    ? 'hsl(39 100% 94% / 0.2)'
+    : ratio > 0.4
+    ? 'hsl(45 80% 60% / 0.35)'
+    : ratio > 0.2
+    ? 'hsl(33 67% 67% / 0.4)'
+    : 'hsl(33 67% 67% / 0.55)';
 
   return (
     <svg
-      ref={ref}
-      viewBox="0 0 700 200"
-      className="w-full max-w-4xl mx-auto cursor-default"
+      ref={svgRef}
+      viewBox="0 0 660 340"
+      className="w-full max-w-4xl mx-auto"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
+      onMouseMove={handleMouseMove}
+      onMouseLeave={handleMouseLeave}
+      style={{ cursor: 'crosshair' }}
     >
-      {/* Phase label */}
-      <text x="350" y="14" textAnchor="middle"
-        fill={phaseLabelColor} fontFamily="var(--font-sans)"
-        fontSize="7" letterSpacing="0.25em"
-        style={{ transition: 'fill 0.8s ease' }}>
-        {phaseLabel}
+      <defs>
+        <radialGradient id="pressure-field" cx="50%" cy="50%" r="50%">
+          <stop offset="0%" stopColor="hsl(0 60% 50% / 0.06)" />
+          <stop offset="60%" stopColor="hsl(33 67% 67% / 0.03)" />
+          <stop offset="100%" stopColor="hsl(33 67% 67% / 0)" />
+        </radialGradient>
+        <filter id="glow-strong">
+          <feGaussianBlur stdDeviation="4" />
+        </filter>
+      </defs>
+
+      {/* Status label */}
+      <text x="330" y="18" textAnchor="middle"
+        fill={statusColor} fontFamily="monospace"
+        fontSize="7" letterSpacing="0.2em"
+        style={{ transition: 'fill 0.5s ease' }}>
+        {statusLabel}
       </text>
 
-      {isSimple ? (
-        <>
-          {/* Simple edges */}
-          {simpleEdges.map(([a, b], i) => {
-            const fromNode = simpleNodes[a];
-            const toNode = simpleNodes[b];
-            const x1 = fromNode.x + fromNode.w;
-            const y1 = fromNode.y + fromNode.h / 2;
-            const x2 = toNode.x;
-            const y2 = toNode.y + toNode.h / 2;
-            return (
-              <g key={`se-${i}`}>
-                <line x1={x1} y1={y1} x2={x2} y2={y2}
-                  stroke="hsl(33 67% 67% / 0.3)" strokeWidth={1.2}
-                  style={{ transition: 'all 0.8s ease' }} />
-                {/* Output connector dot */}
-                <circle cx={x1} cy={y1} r={dotR}
-                  fill="hsl(33 67% 67% / 0.5)" />
-                {/* Input connector dot */}
-                <circle cx={x2} cy={y2} r={dotR}
-                  fill="hsl(33 67% 67% / 0.5)" />
-              </g>
-            );
-          })}
-
-          {/* Simple nodes */}
-          {simpleNodes.map((node, i) => (
-            <g key={`sn-${i}`} style={{ transition: 'all 0.8s ease' }}>
-              <rect x={node.x} y={node.y} width={node.w} height={node.h}
-                rx={4}
-                fill={getNodeFill(node.type, true)}
-                stroke={getNodeStroke(node.type, true)}
-                strokeWidth={1.4} />
-              <text x={node.x + node.w / 2} y={node.y + node.h / 2 + 3.5}
-                textAnchor="middle" fontSize="8.5"
-                fill="hsl(39 100% 94% / 0.7)"
-                fontFamily="monospace" letterSpacing="0.06em">
-                {node.label}
-              </text>
-            </g>
-          ))}
-
-          {/* Subtle enclosure */}
-          <rect x="135" y="45" width="430" height="74" rx={8}
-            fill="none" stroke="hsl(33 67% 67% / 0.06)" strokeWidth={0.8}
-            className="animate-pulse-subtle" />
-        </>
-      ) : (
-        <>
-          {/* Complex edges */}
-          {complexEdges.map(([a, b], i) => {
-            const nodeA = isReducingOrSimple ? getReducedPos(a) : complexNodes[a];
-            const nodeB = isReducingOrSimple ? getReducedPos(b) : complexNodes[b];
-            const x1 = nodeA.x + nodeA.w;
-            const y1 = nodeA.y + nodeA.h / 2;
-            const x2 = nodeB.x;
-            const y2 = nodeB.y + nodeB.h / 2;
-            return (
-              <line key={`ce-${i}`}
-                x1={x1} y1={y1} x2={x2} y2={y2}
-                stroke={isReducingOrSimple ? 'hsl(33 67% 67% / 0.04)' : 'hsl(39 100% 94% / 0.08)'}
-                strokeWidth={0.6}
-                className={isVisible ? 'opacity-100' : 'opacity-0'}
-                style={{ transition: 'all 1.2s cubic-bezier(.22,.61,.36,1)' }}
-              />
-            );
-          })}
-
-          {/* Complex nodes */}
-          {complexNodes.map((node, i) => {
-            const pos = isReducingOrSimple ? getReducedPos(i) : node;
-            const isCondition = node.type === 'condition';
-            return (
-              <g key={`cn-${i}`}
-                className={isVisible ? 'opacity-100' : 'opacity-0'}
-                style={{ transition: 'all 1.2s cubic-bezier(.22,.61,.36,1)' }}>
-                {isCondition ? (
-                  // Diamond shape for conditions
-                  <g transform={`translate(${pos.x + pos.w / 2}, ${pos.y + pos.h / 2})`}>
-                    <polygon
-                      points={`0,${-pos.h / 2} ${pos.w / 2},0 0,${pos.h / 2} ${-pos.w / 2},0`}
-                      fill={getNodeFill(node.type)}
-                      stroke={getNodeStroke(node.type)}
-                      strokeWidth={0.8}
-                    />
-                    <text x={0} y={3} textAnchor="middle" fontSize="5"
-                      fill={`hsl(39 100% 94% / ${isReducingOrSimple ? 0.05 : 0.3})`}
-                      fontFamily="monospace" letterSpacing="0.04em"
-                      style={{ transition: 'fill 1s ease' }}>
-                      {node.label}
-                    </text>
-                  </g>
-                ) : (
-                  <>
-                    <rect x={pos.x} y={pos.y} width={pos.w} height={pos.h}
-                      rx={3}
-                      fill={getNodeFill(node.type)}
-                      stroke={getNodeStroke(node.type)}
-                      strokeWidth={0.8} />
-                    {/* Left connector dot */}
-                    <circle cx={pos.x} cy={pos.y + pos.h / 2} r={1.5}
-                      fill={getNodeStroke(node.type)} />
-                    {/* Right connector dot */}
-                    <circle cx={pos.x + pos.w} cy={pos.y + pos.h / 2} r={1.5}
-                      fill={getNodeStroke(node.type)} />
-                    <text x={pos.x + pos.w / 2} y={pos.y + pos.h / 2 + 3}
-                      textAnchor="middle" fontSize="5.5"
-                      fill={`hsl(39 100% 94% / ${isReducingOrSimple ? 0.05 : 0.35})`}
-                      fontFamily="monospace" letterSpacing="0.04em"
-                      style={{ transition: 'fill 1s ease' }}>
-                      {node.label}
-                    </text>
-                  </>
-                )}
-              </g>
-            );
-          })}
-        </>
+      {/* Pressure field indicator */}
+      {mouse && (
+        <circle cx={mouse.x} cy={mouse.y} r={PRESSURE_RADIUS}
+          fill="url(#pressure-field)"
+          style={{ transition: 'cx 0.05s, cy 0.05s' }} />
       )}
 
-      {/* Bottom caption */}
-      <text x="350" y="192" textAnchor="middle"
-        fill="hsl(39 100% 94% / 0.12)" fontFamily="var(--font-sans)"
-        fontSize="5.5" letterSpacing="0.15em">
-        {isSimple ? 'THREE NODES. ZERO FRAGILITY.' : 'OBSERVE THE REDUCTION'}
+      {/* Edges */}
+      {EDGES.map((edge, i) => {
+        const broken = brokenEdges.has(i);
+        const isDurable = edge.strength >= 0.9;
+        const fromNode = NODES[edge.from];
+        const toNode = NODES[edge.to];
+
+        // Calculate proximity to cursor for glow effect
+        let proximity = 0;
+        if (mouse && isDurable) {
+          const midX = (fromNode.x + toNode.x) / 2;
+          const midY = (fromNode.y + toNode.y) / 2;
+          const dist = Math.hypot(mouse.x - midX, mouse.y - midY);
+          proximity = Math.max(0, 1 - dist / PRESSURE_RADIUS);
+        }
+
+        const baseAlpha = isDurable ? 0.35 : edge.strength * 0.3 + 0.05;
+        const strokeColor = broken
+          ? 'hsl(0 60% 50% / 0)'
+          : isDurable && proximity > 0
+          ? `hsl(33 67% 67% / ${0.35 + proximity * 0.45})`
+          : `hsl(39 100% 94% / ${baseAlpha})`;
+
+        return (
+          <line key={`e-${i}`}
+            x1={fromNode.x} y1={fromNode.y}
+            x2={toNode.x} y2={toNode.y}
+            stroke={strokeColor}
+            strokeWidth={isDurable ? 1.4 + proximity * 0.8 : 0.6}
+            strokeDasharray={broken ? '2 4' : 'none'}
+            style={{
+              transition: broken
+                ? 'stroke 0.6s ease, stroke-dasharray 0.3s ease'
+                : 'stroke 0.15s ease, stroke-width 0.15s ease',
+              opacity: isVisible ? 1 : 0,
+            }}
+          />
+        );
+      })}
+
+      {/* Nodes */}
+      {NODES.map((node, i) => {
+        const alive = nodeAlive[i];
+        const isDurable = node.durable;
+        const fading = !alive && !isDurable && hasInteracted;
+
+        // Proximity glow for durable nodes
+        let proximity = 0;
+        if (mouse && isDurable) {
+          const dist = Math.hypot(mouse.x - node.x, mouse.y - node.y);
+          proximity = Math.max(0, 1 - dist / PRESSURE_RADIUS);
+        }
+
+        const nodeOpacity = fading ? 0.08 : isVisible ? 1 : 0;
+        const strokeAlpha = isDurable
+          ? 0.5 + proximity * 0.4
+          : fading ? 0.05 : 0.2;
+        const fillAlpha = isDurable
+          ? 0.06 + proximity * 0.08
+          : fading ? 0.01 : 0.03;
+        const textAlpha = isDurable
+          ? 0.6 + proximity * 0.3
+          : fading ? 0.03 : 0.3;
+
+        const strokeColor = isDurable
+          ? `hsl(33 67% 67% / ${strokeAlpha})`
+          : `hsl(39 100% 94% / ${strokeAlpha})`;
+        const fillColor = isDurable
+          ? `hsl(33 67% 67% / ${fillAlpha})`
+          : `hsl(39 100% 94% / ${fillAlpha})`;
+
+        return (
+          <g key={`n-${i}`}
+            style={{
+              opacity: nodeOpacity,
+              transition: fading
+                ? 'opacity 1s ease 0.3s'
+                : 'opacity 0.8s ease',
+            }}>
+            {/* Glow behind durable nodes under pressure */}
+            {isDurable && proximity > 0.3 && (
+              <rect
+                x={node.x - NODE_W / 2 - 6} y={node.y - NODE_H / 2 - 6}
+                width={NODE_W + 12} height={NODE_H + 12}
+                rx={8} fill={`hsl(33 67% 67% / ${proximity * 0.1})`}
+                filter="url(#glow-strong)"
+              />
+            )}
+            <rect
+              x={node.x - NODE_W / 2} y={node.y - NODE_H / 2}
+              width={NODE_W} height={NODE_H}
+              rx={isDurable ? 4 : 3}
+              fill={fillColor}
+              stroke={strokeColor}
+              strokeWidth={isDurable ? 1.4 : 0.7}
+              style={{ transition: 'all 0.2s ease' }}
+            />
+            {/* Connector dots */}
+            <circle cx={node.x - NODE_W / 2} cy={node.y} r={1.5}
+              fill={strokeColor} style={{ transition: 'fill 0.2s ease' }} />
+            <circle cx={node.x + NODE_W / 2} cy={node.y} r={1.5}
+              fill={strokeColor} style={{ transition: 'fill 0.2s ease' }} />
+            <text
+              x={node.x} y={node.y + 3}
+              textAnchor="middle" fontSize="6"
+              fill={`hsl(39 100% 94% / ${textAlpha})`}
+              fontFamily="monospace" letterSpacing="0.05em"
+              style={{ transition: 'fill 0.2s ease' }}>
+              {node.label}
+            </text>
+          </g>
+        );
+      })}
+
+      {/* Bottom metrics */}
+      <text x="330" y="332" textAnchor="middle"
+        fill="hsl(39 100% 94% / 0.1)" fontFamily="monospace"
+        fontSize="5.5" letterSpacing="0.12em">
+        {hasInteracted
+          ? `${survivingEdges}/${totalEdges} CONNECTIONS SURVIVING`
+          : 'INTERACTIVE STRESS TEST'}
       </text>
     </svg>
   );
