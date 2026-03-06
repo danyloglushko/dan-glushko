@@ -9,15 +9,20 @@ interface RecordCategory {
   items: RecordItem[];
 }
 
+interface Publication {
+  title: string;
+  venue: string;
+}
+
 const categories: RecordCategory[] = [
   {
     label: 'Engineering Record',
     items: [
-      { text: '12+ Years — Executed Tertiary EOR Programs' },
-      { text: '50+ Chemical EOR Systems Designed & Validated' },
-      { text: 'ASP / SP / Polymer — Lab Through Pilot' },
-      { text: '5 SPE Papers — Documented for Reproducibility' },
-      { text: 'Kuwait Pilot — Deployed for Field QC' },
+      { text: '12+ Years — Chemical EOR Engineering' },
+      { text: '50+ Chemical EOR System Designs' },
+      { text: '150+ Coreflood Experiments Executed' },
+      { text: 'SPE Technical Publications' },
+      { text: 'Kuwait Field Pilot Deployment' },
     ],
   },
   {
@@ -27,7 +32,6 @@ const categories: RecordCategory[] = [
       { text: 'LLM Agent Systems — Designed & Operated' },
       { text: 'Revenue Automation Infrastructure' },
       { text: 'Blockchain Architecture Since 2018' },
-      
     ],
   },
   {
@@ -38,6 +42,21 @@ const categories: RecordCategory[] = [
       { text: 'Migrated Infrastructure & Redesigned Front-End' },
       { text: 'Integrated Operational Automation End-to-End' },
     ],
+  },
+];
+
+const publications: Publication[] = [
+  {
+    title: 'Conditioning Polymer Solutions for Injection into Tight Reservoir Rocks',
+    venue: 'SPE Improved Oil Recovery Conference',
+  },
+  {
+    title: 'Low Salinity Polymer Flooding in a High Temperature Low Permeability Carbonate Reservoir in West Kuwait',
+    venue: 'SPE Kuwait Oil & Gas Show',
+  },
+  {
+    title: 'Innovative ASP Formulation Strategies for Multi Field Applications and Enhanced Economic Feasibility',
+    venue: 'SPE Improved Oil Recovery Symposium',
   },
 ];
 
@@ -73,6 +92,49 @@ const TechnicalRecordSection = () => {
               </ul>
             </div>
           ))}
+        </div>
+
+        {/* Technical Research & Publications */}
+        <div className="reveal mt-20" style={{ transitionDelay: '0.3s' }}>
+          <h3 className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold mb-8">
+            Technical Research & Publications
+          </h3>
+          <div className="prose-editorial space-y-5 max-w-3xl">
+            <p>
+              Dan Glushko has contributed to multiple Society of Petroleum Engineers (SPE) technical publications and international research programs focused on chemical enhanced oil recovery, polymer flooding, and ASP system design.
+            </p>
+            <p>
+              His work has included laboratory design and validation of ASP, surfactant‑polymer, and polymer flooding systems for complex carbonate and sandstone reservoirs.
+            </p>
+            <p>
+              Over the course of his engineering career he has executed more than 150 laboratory coreflood experiments used to validate chemical recovery models, optimize surfactant formulations, and support field pilot deployments.
+            </p>
+            <p>
+              These studies have contributed to chemical EOR programs implemented across multiple international oil operators — including projects in Kuwait and the Middle East.
+            </p>
+          </div>
+        </div>
+
+        {/* Selected Technical Publications */}
+        <div className="reveal mt-16" style={{ transitionDelay: '0.45s' }}>
+          <h3 className="font-sans text-[10px] tracking-[0.2em] uppercase text-gold mb-8">
+            Selected Technical Publications
+          </h3>
+          <div className="space-y-px">
+            {publications.map((pub, i) => (
+              <div
+                key={i}
+                className="bg-background border-l-2 border-gold/20 pl-6 py-5 pr-6 hover:border-gold/50 transition-colors"
+              >
+                <p className="font-sans text-sm text-cream leading-relaxed">
+                  {pub.title}
+                </p>
+                <p className="font-sans text-[11px] text-muted-foreground mt-1 tracking-wide">
+                  {pub.venue}
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
     </section>
