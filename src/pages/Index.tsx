@@ -6,6 +6,7 @@ import CrimeaMapSVG from '../components/CrimeaMapSVG';
 import HasslerCoreholderSVG from '../components/HasslerCoreholderSVG';
 import TransferModelSVG from '../components/TransferModelSVG';
 import FeedbackLoopSVG from '../components/FeedbackLoopSVG';
+import DurabilitySVG from '../components/DurabilitySVG';
 import VentureCard from '../components/VentureCard';
 import TechnicalRecordSection from '../components/TechnicalRecordSection';
 import OkanaCaseStudy from '../components/OkanaCaseStudy';
@@ -173,13 +174,21 @@ const Index = () => {
           </p>
         </div>
 
+        {/* Complexity to Durability diagram */}
+        <div className="mt-16">
+          <DurabilitySVG />
+          <p className="text-center mt-6 font-sans text-[9px] tracking-[0.15em] uppercase text-muted-nav">
+            Complexity reduced to load bearing structure
+          </p>
+        </div>
+
         {/* Capital & stewardship signal */}
         <div className="mt-16 border-t border-border/30 pt-12 max-w-3xl">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {[
               'Built for durability across cycles.',
               'Engineered for margin resilience.',
-              'Structured for long-term compounding.',
+              'Structured for long term compounding.',
               'Stewardship, not extraction.',
             ].map((signal, i) => (
               <p key={i} className="font-sans text-xs text-muted-foreground tracking-wide leading-relaxed flex items-center gap-3">

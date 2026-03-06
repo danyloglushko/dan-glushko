@@ -147,16 +147,16 @@ const MAX_LAT = 46.35;
 const SVG_W = 520;
 const CRIMEA_H = 340;
 
-// Texas projection constants — tighter bounding box for accurate proportions
+// Texas projection constants — scaled to match Crimea visual diameter
 const TX_MIN_LON = -107.2;
 const TX_MAX_LON = -93.0;
 const TX_MIN_LAT = 25.5;
 const TX_MAX_LAT = 37.0;
-const TX_REGION_Y = 430;
-const TX_REGION_H = 300;
-const TX_PAD = 30;
+const TX_REGION_Y = 400;
+const TX_REGION_H = 340;
+const TX_PAD = 60;
 
-const TOTAL_H = 750;
+const TOTAL_H = 760;
 const PAD = 20;
 
 function project(lon: number, lat: number): [number, number] {
