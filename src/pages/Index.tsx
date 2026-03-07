@@ -197,16 +197,37 @@ const Index = () => {
       <ChapterSection id="durability" number="V" title="Durability">
         <div className="prose-editorial space-y-6 max-w-3xl">
           <p>
-            This chapter is not about growth. It is about <strong>what remains when you stop adding</strong>.
+            This chapter is not about growth.
           </p>
           <p>
-            My mother, the person who engineered stability out of nothing, is the most important structural element in everything I have built. The most durable systems are built on <strong>foundations that predate the architect</strong>.
+            It is about <strong>what remains when you stop adding</strong>.
           </p>
           <p>
-            Family is the load bearing wall. Legacy is not built by moving fast. It is built by <strong>designing systems that compound after you stop touching them</strong>.
+            After more than a decade working as an engineer, I have learned something simple:
           </p>
           <p>
-            Restraint is the final optimization. Knowing what not to build. What not to disrupt. <strong>The last move is stillness.</strong>
+            Operations do not run on intensity. They run on <strong>process</strong>.
+          </p>
+          <p>
+            A system that works once is interesting. A system that works every day is valuable.
+          </p>
+          <p>
+            My mother built stability out of almost nothing. That foundation sits underneath everything I have built.
+          </p>
+          <p>
+            <strong>Family is the load bearing wall.</strong>
+          </p>
+          <p>
+            Legacy is not built by moving fast. It is built by designing systems that <strong>keep working after you step away</strong>.
+          </p>
+          <p>
+            The final stage of optimization is restraint.
+          </p>
+          <p>
+            Knowing what not to change. Knowing what not to disrupt.
+          </p>
+          <p>
+            <strong>The strongest systems simply continue to run.</strong>
           </p>
         </div>
 
