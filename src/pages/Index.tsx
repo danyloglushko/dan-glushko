@@ -116,31 +116,46 @@ const Index = () => {
             Every venture that did not scale gave me something no successful one could: <strong>a precise map of where the model breaks</strong>.
           </p>
           <p>
-            My first company operated as a wholesale marketplace business selling across Amazon, Walmart, eBay, and international channels. At first it felt simple. Source products, move inventory, capture margin.
+            My first company operated as a wholesale marketplace business selling products across Amazon, Walmart, eBay, and international markets. At the beginning it seemed straightforward. Source products, move inventory, capture margin.
           </p>
           <p>
-            It did not stay simple.
+            It did not stay straightforward for long.
           </p>
           <p>
-            Marketplaces introduce a level of operational complexity most people never see from the outside. Pricing moves constantly. Supply chains shift without warning. Platforms change rules overnight. Small misalignments compound quickly.
+            Marketplaces are complex systems disguised as simple ones. Pricing moves constantly. Platform rules change without warning. Inventory timing, supplier reliability, shipping constraints, and cash flow all interact in ways that are difficult to see until you are inside the system.
           </p>
           <p>
-            I learned the mechanics of business fast because the system forces you to. Inventory management, supplier reliability, cash flow timing, operational friction, platform risk. Every decision had downstream consequences.
+            I learned operational complexity quickly because the system forces you to. Every small decision has downstream effects. A pricing shift in one marketplace ripples through another. A supplier delay cascades into inventory gaps. Margins compress when friction compounds.
           </p>
           <p>
-            The business did not scale the way I initially envisioned, but it produced something more valuable: a real understanding of how fragile poorly designed systems are.
+            The experience was demanding, but it revealed something important: <strong>most businesses do not fail because people stop working. They fail because the underlying systems were never designed to handle the complexity they eventually face</strong>.
           </p>
           <p>
-            Later, when I acquired Okana, I encountered a different version of the same lesson. The product was sound, but the infrastructure had degraded. The flaw was not execution. It was <strong>load distribution</strong>. The system had been designed for conditions that no longer existed.
+            That lesson stayed with me.
           </p>
           <p>
-            I rebuilt it for the conditions that did.
+            Later, when I encountered Okana, I recognized a different version of the same problem.
           </p>
           <p>
-            Without failure data, you are optimizing against a model you have never validated. I have validated mine repeatedly, at cost, across different substrates.
+            The brand itself was thoughtful. The product had substance. But the infrastructure surrounding it had begun to deteriorate. Technology was aging. Operational systems had weakened. The environment required for the brand to function no longer matched the structure supporting it.
           </p>
           <p>
-            That process shifted how I build. From designing systems that assume stability to engineering systems that <strong>absorb variance</strong>.
+            It was approaching the point where something valuable might simply disappear.
+          </p>
+          <p>
+            What interested me was not launching something new. It was <strong>preserving something that already had meaning</strong>.
+          </p>
+          <p>
+            So the objective was not aggressive growth. It was stabilization.
+          </p>
+          <p>
+            I migrated the infrastructure, rebuilt the storefront, reconstructed operational workflows, and designed systems that would allow the brand to continue existing without constant intervention.
+          </p>
+          <p>
+            The goal was simple: create an environment where the brand could survive long enough to evolve.
+          </p>
+          <p>
+            Most people try to force growth before the system is ready to support it. I prefer the opposite approach. <strong>Strengthen the structure first. Let growth emerge from stability</strong>.
           </p>
         </div>
 
