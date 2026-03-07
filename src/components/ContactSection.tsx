@@ -9,15 +9,31 @@ const ContactSection = () => {
         <div className="reveal">
           <div className="divider-gold mx-auto mb-8" />
           <h2 className="heading-serif text-4xl md:text-5xl mb-6">Contact</h2>
-          <p className="prose-editorial mx-auto text-center mb-10">
-            For operational inquiries, partnerships, or collaboration. Reach out directly.
+          <p className="prose-editorial mx-auto text-center mb-12">
+            If you are building durable systems, exploring acquisitions, or working on something
+            interesting, I am always open to thoughtful conversations.
           </p>
+
           <a
-            href="mailto:dan@livadea.com"
-            className="inline-block px-8 py-3 border border-gold/40 text-gold font-sans text-xs tracking-[0.2em] uppercase rounded-sm btn-lift hover:border-gold/80 hover:bg-gold/5 transition-all duration-300"
+            href="https://cal.com/livadea/intro-call"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-10 py-3.5 bg-gold/10 border border-gold/50 text-gold font-sans text-xs tracking-[0.2em] uppercase rounded-sm btn-lift hover:border-gold hover:bg-gold/20 transition-all duration-300"
           >
-            dan@livadea.com
+            Schedule a Conversation
           </a>
+
+          <div className="mt-8 flex flex-col items-center gap-1.5">
+            <span className="font-sans text-[11px] tracking-[0.12em] text-muted-foreground/60">
+              or reach out directly
+            </span>
+            <a
+              href="mailto:dan@livadea.com"
+              className="font-sans text-sm tracking-wide text-muted-foreground hover:text-gold transition-colors duration-300"
+            >
+              dan@livadea.com
+            </a>
+          </div>
         </div>
       </div>
 
