@@ -113,16 +113,34 @@ const Index = () => {
       <ChapterSection id="failure" number="III" title="Failure as Calibration">
         <div className="prose-editorial space-y-6 max-w-3xl">
           <p>
-             Every venture that did not scale gave me something no successful one could: <strong>a precise map of where the model breaks</strong>.
-           </p>
-           <p>
-             When I acquired Okana, the product was sound but the infrastructure had degraded. The flaw was not execution. It was <strong>load distribution</strong>. The system was designed for conditions that did not exist. I rebuilt it for the conditions that did.
-           </p>
-           <p>
-             Without failure data, you are optimizing against a model you have never validated. I have validated mine, repeatedly, at cost, across different substrates.
+            Every venture that did not scale gave me something no successful one could: <strong>a precise map of where the model breaks</strong>.
           </p>
           <p>
-            That process shifted how I build: from designing systems that assume stability to engineering systems that <strong>absorb variance</strong>.
+            My first company operated as a wholesale marketplace business selling across Amazon, Walmart, eBay, and international channels. At first it felt simple. Source products, move inventory, capture margin.
+          </p>
+          <p>
+            It did not stay simple.
+          </p>
+          <p>
+            Marketplaces introduce a level of operational complexity most people never see from the outside. Pricing moves constantly. Supply chains shift without warning. Platforms change rules overnight. Small misalignments compound quickly.
+          </p>
+          <p>
+            I learned the mechanics of business fast because the system forces you to. Inventory management, supplier reliability, cash flow timing, operational friction, platform risk. Every decision had downstream consequences.
+          </p>
+          <p>
+            The business did not scale the way I initially envisioned, but it produced something more valuable: a real understanding of how fragile poorly designed systems are.
+          </p>
+          <p>
+            Later, when I acquired Okana, I encountered a different version of the same lesson. The product was sound, but the infrastructure had degraded. The flaw was not execution. It was <strong>load distribution</strong>. The system had been designed for conditions that no longer existed.
+          </p>
+          <p>
+            I rebuilt it for the conditions that did.
+          </p>
+          <p>
+            Without failure data, you are optimizing against a model you have never validated. I have validated mine repeatedly, at cost, across different substrates.
+          </p>
+          <p>
+            That process shifted how I build. From designing systems that assume stability to engineering systems that <strong>absorb variance</strong>.
           </p>
         </div>
 
